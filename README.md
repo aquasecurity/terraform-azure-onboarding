@@ -15,18 +15,16 @@ to enable seamless integration with Aqua’s platform.
 
 ## Table of Contents
 
-- [Terraform-azure-onboarding](#terraform-azure-onboarding)
-  - [Table of Contents](#table-of-contents)
-  - [Pre-requisites](#pre-requisites)
-  - [Usage](#usage)
-  - [Examples](#examples)
-  - [Using Existing Network](#using-existing-network)
-  - [Requirements](#requirements)
-  - [Providers](#providers)
-  - [Modules](#modules)
-  - [Resources](#resources)
-  - [Inputs](#inputs)
-  - [Outputs](#outputs)
+- [Pre-requisites](#pre-requisites)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Using Existing Network](#using-existing-network)
+- [Requirements](#requirements)
+- [Providers](#providers)
+- [Modules](#modules)
+- [Resources](#resources)
+- [Inputs](#inputs)
+- [Outputs](#outputs)
 
 ## Pre-requisites
 
