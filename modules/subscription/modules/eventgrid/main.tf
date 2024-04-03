@@ -20,13 +20,13 @@ resource "azurerm_eventgrid_event_subscription" "aqua_agentless_scanner" {
   }
 
   delivery_property {
-    header_name = var.event_subscription_delivery_name
-    type        = var.event_subscription_delivery_type
+    header_name = local.event_subscription_delivery_name
+    type        = local.event_subscription_delivery_type
     value       = var.aqua_volscan_api_token
     secret      = true
   }
 
   subject_filter {
-    subject_ends_with = var.event_subscription_filter
+    subject_ends_with = local.event_subscription_filter
   }
 }

@@ -40,12 +40,12 @@ output "aqua_agentless_scanner_delete_role_definition_id" {
 # }
 
 output "aqua_volscan_resource_group_name" {
-  value       = var.aqua_create_network ? module.resource_group[0].aqua_volscan_resource_group_name : local.resource_group_name
+  value       = var.aqua_volscan_resource_group_name
   description = "Aqua volume scanning Resource Group Name"
 }
 
 output "resource_group_id" {
-  value       = var.aqua_create_network ? module.resource_group[0].resource_group_id : data.azurerm_resource_group.resource_group[0].id
+  value       = var.create_network ? module.resource_group[0].resource_group_id : data.azurerm_resource_group.resource_group[0].id
   description = "Resource Group ID"
 }
 

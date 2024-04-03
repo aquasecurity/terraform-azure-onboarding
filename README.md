@@ -1,8 +1,7 @@
 ![Aquasecurity logo](https://avatars3.githubusercontent.com/u/12783832?s=200&v=4)
 
 # Terraform-azure-onboarding
-
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/aquasecurity/terraform-gcp-onboarding)
+[![Release](https://img.shields.io/github/v/release/aquasecurity/terraform-azure-onboarding)](https://github.com/aquasecurity/terraform-azure-onboarding/releases)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This Terraform module provides an easy way
@@ -38,9 +37,10 @@ Before using this module, ensure that you have the following:
 ## Usage
 1. Leverage the Aqua platform to generate the local variables required by the module.
 2. Important: Replace `<aqua_api_key>` and `<aqua_api_secret>` with your generated API credentials.
-3. Run `az account set --subscription "<subscription_name>"` to set azure cli context.
-4. Run `terraform init` to initialize the module.
-5. Run `terraform apply` to create the resources.
+3. Run `az login --tenant <tenant_id>` to set your tenant.
+4. Run `az account set --subscription <subscription_name>` to set azure cli context.
+5. Run `terraform init` to initialize the module.
+6. Run `terraform apply` to create the resources.
 
 ## Examples
 
@@ -121,7 +121,6 @@ prior to onboarding, the following resources with the following naming conventio
 | <a name="aqua_subnet_name"></a> [aqua\_subnet\_name](#aqua\_subnet\_name) | Aqua volume scanning subnet name | `string` | "aqua-agentless-scanner" | no |
 | <a name="aqua_system_topics_name"></a> [aqua\_system\_topics\_name](#aqua\_system\_topics\_name) | Aqua Event Grid System Topics | `string` | "aqua-agentless-scanner" | no |
 | <a name="aqua_event_subscriptions_name"></a> [aqua\_event\_subscriptions\_name](#aqua\_event\_subscriptions\_name) | Aqua Event Subscriptions Name | `string` | "aqua-agentless-scanner" | no |
-| <a name="event_subscription_delivery_name"></a> [event\_subscription\_delivery\_name](#event\_subscription\_delivery\_name) | Aqua Event Subscription delivery name | `string` | "" | no |
 | <a name="is_custom_name_vol_scan"></a> [is\_custom\_name\_vol\_scan](#is\_custom\_name\_vol\_scan) | Is custom name vol scan | `string` | "false" | no |
 | <a name="aqua_autoconnect_url"></a> [aqua\_autoconnect\_url](#aqua\_autoconnect\_url) | Aqua AutoConnect URL | `string` | n/a | yes |
 | <a name="aqua_volscan_api_url"></a> [aqua\_volscan\_api\_url](#aqua\_volscan\_api\_url) | Aqua volume scan API URL | `string` | n/a | yes |

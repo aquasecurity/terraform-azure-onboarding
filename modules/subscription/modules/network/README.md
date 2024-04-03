@@ -31,10 +31,8 @@ No modules.
 | <a name="aqua_volscan_scan_locations"></a> [aqua\_volscan\_scan\_locations](#aqua\_volscan\_scan\_locations) | Aqua list of volume scanning locations | `string` | n/a | yes |
 | <a name="aqua_volscan_resource_group_name"></a> [aqua\_volscan\_resource\_group\_name](#aqua\_volscan\_resource\_group\_name) | Aqua volume scanning Resource Group Name | `string` | n/a | yes |
 | <a name="aqua_virtual_network_name"></a> [aqua\_virtual\_network\_name](#aqua\_virtual\_network\_name) | Aqua volume scanning virtual network name | `string` | n/a | yes |
-| <a name="virtual_network_address_space"></a> [virtual\_network\_address\_space](#virtual\_network\_address\_space) | Aqua volume scanning virtual network address space | `string` | n/a | yes |
 | <a name="aqua_network_security_group_name"></a> [aqua\_network\_security\_group\_name](#aqua\_network\_security\_group\_name) | Aqua volume scanning network security group name | `string` | n/a | yes |
 | <a name="aqua_subnet_name"></a> [aqua\_subnet\_name](#aqua\_subnet\_name) | Aqua volume scanning subnet name | `string` | n/a | yes |
-| <a name="subnet_address_prefixes"></a> [subnet\_address\_prefixes](#subnet\_address\_prefixes) | Aqua volume scanning subnet address prefixes | `string` | n/a | yes |
 
 ## Outputs
 

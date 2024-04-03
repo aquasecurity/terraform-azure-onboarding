@@ -28,8 +28,6 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="application_name"></a> [application\_name](#application\_name) | Application Name | `string` | n/a | yes |
-| <a name="application_password_name"></a> [application\_password\_name](#application\_password\_name) | Aqua Event Application Password Name | `string` | n/a | yes |
-| <a name="application_password_end_date"></a> [application\_password\_end\_date](#application\_password\_end\_date) | Aqua Event Application End Date | `string` | n/a | yes |
 
 
 ## Outputs

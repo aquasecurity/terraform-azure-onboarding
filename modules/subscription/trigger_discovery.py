@@ -6,8 +6,8 @@ timestamp = str(int(time.time() * 1000))
 
 # Retrieve the query parameters
 query = json.loads(sys.stdin.read())
-get_signature_internal_path = query.get("get_signature_internal_path", "")
-get_signature_cspm_path = query.get("get_signature_cspm_path", "")
+get_signature_internal_path = "/v2/internal_apikeys"
+get_signature_cspm_path = "/v2/keys"
 aqua_api_key = query.get("aqua_api_key", "")
 aqua_api_secret = query.get("aqua_api_secret", "")
 aqua_autoconnect_url = query.get("aqua_autoconnect_url", "")
