@@ -1,4 +1,4 @@
-import time, json, sys
+import time, json, sys, ssl
 import hmac, hashlib
 import http.client
 
@@ -63,7 +63,7 @@ body = {
 body_json = json.dumps(body)
 
 
-conn = http.client.HTTPSConnection(aqua_autoconnect_url.split("//")[1]) 
+conn = http.client.HTTPSConnection(aqua_autoconnect_url.split("//")[1], context = ssl._create_unverified_context())
 path = "/discover/azure"
 method = "POST"
 
