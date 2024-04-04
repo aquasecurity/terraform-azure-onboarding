@@ -23,17 +23,6 @@ output "aqua_agentless_scanner_delete_role_definition_id" {
   description = "The ID of the created AQUA agentless delete role definition"
 }
 
-# FIXME:
-# output "virtual_networks_names" {
-#   value       = var.show_outputs ? module.network.virtual_networks_names[*]["name"] : null
-#   description = "Virtual Networks list"
-# }
-
-# output "security_groups_names" {
-#   value       = var.show_outputs ? module.network.security_groups_names[*]["name"] : null
-#   description = "Security Groups list"
-# }
-
 output "aqua_volscan_resource_group_name" {
   value       = var.show_outputs ? module.subscription.aqua_volscan_resource_group_name : null
   description = "Aqua volume scanning Resource Group Name"
