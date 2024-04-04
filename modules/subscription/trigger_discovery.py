@@ -1,4 +1,4 @@
-import time, json, sys
+import time, json, sys, ssl
 import hmac, hashlib
 import http.client
 
@@ -6,8 +6,8 @@ timestamp = str(int(time.time() * 1000))
 
 # Retrieve the query parameters
 query = json.loads(sys.stdin.read())
-get_signature_internal_path = query.get("get_signature_internal_path", "")
-get_signature_cspm_path = query.get("get_signature_cspm_path", "")
+get_signature_internal_path = "/v2/internal_apikeys"
+get_signature_cspm_path = "/v2/keys"
 aqua_api_key = query.get("aqua_api_key", "")
 aqua_api_secret = query.get("aqua_api_secret", "")
 aqua_autoconnect_url = query.get("aqua_autoconnect_url", "")
@@ -23,7 +23,7 @@ aqua_volscan_resource_group_name = query.get("aqua_volscan_resource_group_name",
 if aqua_volscan_resource_group_name == "aqua-agentless-scanner":
     aqua_volscan_resource_group_name = ""        
 aqua_custom_tags = query.get("aqua_custom_tags", "")
-aqua_deployment_method = query.get("aqua_deployment_method", "")
+aqua_deployment_method = "Terraform"
 
 def get_signature(aqua_secret, tstmp, path, method, body=''):
     enc = tstmp + method + path + body
@@ -63,7 +63,7 @@ body = {
 body_json = json.dumps(body)
 
 
-conn = http.client.HTTPSConnection(aqua_autoconnect_url.split("//")[1]) 
+conn = http.client.HTTPSConnection(aqua_autoconnect_url.split("//")[1], context = ssl._create_unverified_context())
 path = "/discover/azure"
 method = "POST"
 

@@ -10,30 +10,6 @@ variable "aqua_custom_tags" {
   description = "Client Additional Resource Tags"
 }
 
-variable "application_name" {
-  type        = string
-  default     = ""
-  description = "Aqua Auto Discovery Application Name"
-}
-
-variable "application_password_name" {
-  type        = string
-  default     = "rbac"
-  description = "Aqua Event Application Password Name"
-}
-
-variable "application_password_end_date" {
-  type        = string
-  default     = "262980h" # 30 years
-  description = "Aqua Event Application End Date"
-}
-
-variable "aqua_deployment_method" {
-  type        = string
-  default     = "Terraform"
-  description = "Aqua deployment method"
-}
-
 variable "aqua_volscan_resource_group_name" {
   type        = string
   default     = "aqua-agentless-scanner"
@@ -107,12 +83,6 @@ variable "aqua_virtual_network_name" {
   description = "Aqua volume scanning virtual network name"
 }
 
-variable "virtual_network_address_space" {
-  type        = list(string)
-  default     = ["10.1.0.0/16"]
-  description = "Aqua volume scanning virtual network address space"
-}
-
 variable "aqua_network_security_group_name" {
   type        = string
   default     = "aqua-agentless-scanner"
@@ -123,12 +93,6 @@ variable "aqua_subnet_name" {
   type        = string
   default     = "aqua-agentless-scanner"
   description = "Aqua volume scanning subnet name"
-}
-
-variable "subnet_address_prefixes" {
-  type        = list(string)
-  default     = ["10.1.0.0/18"]
-  description = "Aqua volume scanning subnet address prefixes"
 }
 
 variable "aqua_system_topics_name" {
@@ -144,40 +108,16 @@ variable "aqua_event_subscriptions_name" {
   description = "Aqua volume scanning Event Subscriptions Name"
 }
 
-variable "event_subscription_filter" {
-  type        = string
-  default     = "-aas"
-  description = "Aqua Event Subscription Filter"
-}
-
-variable "event_subscription_delivery_name" {
-  type        = string
-  default     = "x-vs-api-key"
-  description = "Aqua Event Subscription delivery name"
-}
-
-variable "event_subscription_delivery_type" {
-  type        = string
-  default     = "Static"
-  description = "Aqua Event Subscription delivery type"
-}
-
 variable "is_custom_name_vol_scan" {
   type        = string
   default     = "false"
-  description = "Is custom name vol scan"
+  description = "Is custom name volume scanning"
 }
 
-variable "get_signature_internal_path" {
-  type        = string
-  default     = "/v2/internal_apikeys"
-  description = "Aqua signature internal path"
-}
-
-variable "get_signature_cspm_path" {
-  type        = string
-  default     = "/v2/keys"
-  description = "Aqua signature CSPM path"
+variable "show_outputs" {
+  type        = bool
+  default     = false
+  description = "Whether to show outputs after deployment"
 }
 
 variable "aqua_autoconnect_url" {

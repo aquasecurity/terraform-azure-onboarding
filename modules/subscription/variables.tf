@@ -23,16 +23,6 @@ variable "application_name" {
   description = "Aqua Auto Discovery Application Name"
 }
 
-variable "application_password_name" {
-  type        = string
-  description = "Aqua Event Application Password Name"
-}
-
-variable "application_password_end_date" {
-  type        = string
-  description = "Aqua Event Application End Date"
-}
-
 variable "aqua_volscan_resource_group_name" {
   type        = string
   description = "Aqua volume scanning Resource Group Name"
@@ -53,7 +43,7 @@ variable "cspm_role_scope" {
   description = "The scope at which the Role Definition applies to"
 }
 
-variable "aqua_create_network" {
+variable "create_network" {
   type        = bool
   description = "Whether to create the network resources"
 }
@@ -68,11 +58,6 @@ variable "aqua_virtual_network_name" {
   description = "Aqua volume scanning virtual network name"
 }
 
-variable "virtual_network_address_space" {
-  type        = list(string)
-  description = "Aqua volume scanning virtual network address space"
-}
-
 variable "aqua_network_security_group_name" {
   type        = string
   description = "Aqua network security group name"
@@ -83,11 +68,6 @@ variable "aqua_subnet_name" {
   description = "Aqua volume scanning subnet name"
 }
 
-variable "subnet_address_prefixes" {
-  type        = list(string)
-  description = "Aqua volume scanning subnet address prefixes"
-}
-
 variable "aqua_system_topics_name" {
   type        = string
   description = "Aqua Event Grid System Topics"
@@ -96,21 +76,6 @@ variable "aqua_system_topics_name" {
 variable "aqua_event_subscriptions_name" {
   type        = string
   description = "Aqua Event Subscriptions Name"
-}
-
-variable "event_subscription_filter" {
-  type        = string
-  description = "Aqua Event Subscription Filter"
-}
-
-variable "event_subscription_delivery_name" {
-  type        = string
-  description = "Aqua Event Subscription delivery name"
-}
-
-variable "event_subscription_delivery_type" {
-  type        = string
-  description = "Aqua Event Subscription delivery type"
 }
 
 variable "aqua_volscan_api_url" {
@@ -131,16 +96,6 @@ variable "aqua_api_key" {
 variable "aqua_api_secret" {
   type        = string
   description = "Aqua API secret key"
-}
-
-variable "get_signature_internal_path" {
-  type        = string
-  description = "Aqua signature internal path"
-}
-
-variable "get_signature_cspm_path" {
-  type        = string
-  description = "Aqua signature CSPM path"
 }
 
 variable "aqua_autoconnect_url" {

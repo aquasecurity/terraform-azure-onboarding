@@ -4,7 +4,7 @@ resource "random_string" "uuid" {
 }
 
 resource "azurerm_role_definition" "aqua_cspm_scanner" {
-  name        = "${var.aqua_cspm_role_name}-${random_string.uuid.lower}"
+  name        = "${var.aqua_cspm_role_name}-${lower(random_string.uuid.result)}"
   scope       = var.cspm_role_scope
   description = local.scpm_scanner_role_json["Description"]
   permissions {
@@ -38,7 +38,7 @@ resource "azurerm_role_assignment" "aqua_cspm_scanner_agentless_role" {
 }
 
 resource "azurerm_role_definition" "aqua_agentless_scanner" {
-  name        = "${local.agentless_role_name}-${random_string.uuid.lower}"
+  name        = "${local.agentless_role_name}-${lower(random_string.uuid.result)}"
   scope       = var.cspm_role_scope
   description = local.agentless_role_json["Description"]
   permissions {

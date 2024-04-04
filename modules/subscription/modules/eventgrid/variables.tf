@@ -13,21 +13,6 @@ variable "aqua_event_subscriptions_name" {
   description = "Aqua Event Subscriptions Name"
 }
 
-variable "event_subscription_filter" {
-  type        = string
-  description = "Aqua Event Subscription Filter"
-}
-
-variable "event_subscription_delivery_name" {
-  type        = string
-  description = "Aqua Event Subscription delivery name"
-}
-
-variable "event_subscription_delivery_type" {
-  type        = string
-  description = "Aqua Event Subscription delivery type"
-}
-
 variable "aqua_volscan_api_url" {
   type        = string
   description = "Aqua volume scanning API URL"
