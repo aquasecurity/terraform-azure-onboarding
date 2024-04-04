@@ -25,7 +25,6 @@ data "external" "autoconnect_trigger_discovery" {
     organization_id                  = var.aqua_management_group_id
     is_custom_name_vol_scan          = var.is_custom_name_vol_scan
     aqua_volscan_resource_group_name = var.aqua_volscan_resource_group_name
-    aqua_deployment_method           = var.aqua_deployment_method
     aqua_custom_tags                 = join(",", [for key, value in var.aqua_custom_tags : "${key}:${value}"])
   }
 }

@@ -23,7 +23,7 @@ aqua_volscan_resource_group_name = query.get("aqua_volscan_resource_group_name",
 if aqua_volscan_resource_group_name == "aqua-agentless-scanner":
     aqua_volscan_resource_group_name = ""        
 aqua_custom_tags = query.get("aqua_custom_tags", "")
-aqua_deployment_method = query.get("aqua_deployment_method", "")
+aqua_deployment_method = "Terraform"
 
 def get_signature(aqua_secret, tstmp, path, method, body=''):
     enc = tstmp + method + path + body

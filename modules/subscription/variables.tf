@@ -117,9 +117,3 @@ variable "is_custom_name_vol_scan" {
   type        = string
   description = "Is custom name vol scan"
 }
-
-variable "aqua_deployment_method" {
-  type        = string
-  default     = "Terraform"
-  description = "Aqua deployment method"
-}
