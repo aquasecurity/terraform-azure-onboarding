@@ -1,6 +1,5 @@
 locals {
   env  = lookup({ "prod" = "prod", "stg" = "stage" }, regex("prod|stg", var.aqua_autoconnect_url), "stage")
-  tags = merge({ "aqua-agentless-scanner" = "true" }, var.aqua_custom_tags)
 
   subscription_id = data.azurerm_subscription.current.subscription_id
 

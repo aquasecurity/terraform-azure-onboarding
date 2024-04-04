@@ -5,7 +5,7 @@ module "subscription" {
   env                      = local.env
   subscription_id          = local.subscription_id
 
-  aqua_custom_tags = local.tags
+  aqua_custom_tags         = var.aqua_custom_tags
 
   application_name              = local.application_name
 

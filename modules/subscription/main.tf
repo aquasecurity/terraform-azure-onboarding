@@ -27,9 +27,8 @@ module "resource_group" {
   count                                = var.create_network ? 1 : 0
   aqua_volscan_resource_group_name     = var.aqua_volscan_resource_group_name
   aqua_volscan_resource_group_location = var.aqua_volscan_resource_group_location
-  resource_group_tags                  = var.aqua_custom_tags
+  resource_group_tags                  = local.tags
 }
-
 
 module "network" {
   source = "./modules/network"
@@ -38,7 +37,7 @@ module "network" {
   aqua_virtual_network_name        = var.aqua_virtual_network_name
   aqua_volscan_scan_locations      = var.aqua_volscan_scan_locations
   aqua_volscan_resource_group_name = var.aqua_volscan_resource_group_name
-  tags                             = var.aqua_custom_tags
+  tags                             = local.tags
 
   aqua_network_security_group_name = var.aqua_network_security_group_name
 
@@ -48,7 +47,7 @@ module "network" {
 
 module "eventgrid" {
   source = "./modules/eventgrid"
-  tags   = var.aqua_custom_tags
+  tags   = local.tags
 
   aqua_system_topics_name          = var.aqua_system_topics_name
   aqua_event_subscriptions_name    = var.aqua_event_subscriptions_name
