@@ -120,7 +120,7 @@ prior to onboarding, the following resources with the following naming conventio
 | <a name="input_aqua_api_secret"></a> [aqua\_api\_secret](#input\_aqua\_api\_secret) | Aqua API secret key | `string` | n/a | yes |
 | <a name="input_aqua_autoconnect_url"></a> [aqua\_autoconnect\_url](#input\_aqua\_autoconnect\_url) | Aqua AutoConnect URL | `string` | n/a | yes |
 | <a name="input_aqua_configuration_id"></a> [aqua\_configuration\_id](#input\_aqua\_configuration\_id) | Aqua configuration id | `string` | n/a | yes |
-| <a name="input_aqua_create_network"></a> [aqua\_create\_network](#input\_aqua\_create\_network) | Whether to create the network resources | `bool` | `true` | no |
+| <a name="input_create_network"></a> [create\_network](#input\_create\_network) | Whether to create the network resources | `bool` | `true` | no |
 | <a name="input_aqua_cspm_group_id"></a> [aqua\_cspm\_group\_id](#input\_aqua\_cspm\_group\_id) | CSPM group id | `string` | n/a | yes |
 | <a name="input_aqua_cspm_role_name"></a> [aqua\_cspm\_role\_name](#input\_aqua\_cspm\_role\_name) | Aqua Auto Discovery Scanner Role Name -  If not provided, the default value is set to 'Aqua\_Auto\_Discovery\_Scanner\_Role\_<subscription\_id>' in the 'aqua\_cspm\_role\_name' local | `string` | `""` | no |
 | <a name="input_aqua_custom_tags"></a> [aqua\_custom\_tags](#input\_aqua\_custom\_tags) | Client Additional Resource Tags | `map(string)` | `{}` | no |

@@ -28,7 +28,7 @@ variable "aqua_cspm_role_name" {
   description = "Aqua Auto Discovery Scanner Role Name -  If not provided, the default value is set to 'Aqua_Auto_Discovery_Scanner_Role_<subscription_id>' in the 'aqua_cspm_role_name' local"
 }
 
-variable "aqua_create_network" {
+variable "create_network" {
   type        = bool
   default     = true
   description = "Whether to create the network resources"

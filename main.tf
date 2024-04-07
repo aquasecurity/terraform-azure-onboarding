@@ -22,7 +22,7 @@ module "subscription" {
   aqua_configuration_id  = var.aqua_configuration_id
   aqua_cspm_group_id     = var.aqua_cspm_group_id
 
-  create_network              = var.aqua_create_network
+  create_network                   = var.create_network
   aqua_virtual_network_name        = var.aqua_virtual_network_name
   is_custom_name_vol_scan          = var.is_custom_name_vol_scan
   aqua_cspm_role_name              = local.aqua_cspm_role_name
