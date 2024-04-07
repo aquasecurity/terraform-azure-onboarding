@@ -43,5 +43,7 @@ override.tf.json
 *.swp
 
 /.idea/
+/helpers/
 /.mypy_cache/
 .DS_Store
+/AzureOnboarding.pptx
