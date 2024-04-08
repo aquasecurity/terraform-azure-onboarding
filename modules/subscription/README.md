@@ -3,15 +3,20 @@
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.4 |
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~>2.47.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>3.95.0 |
+| <a name="requirement_external"></a> [external](#requirement\_external) | ~>2.3.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | n/a |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
-| <a name="provider_external"></a> [external](#provider\_external) | n/a |
+| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | ~>2.47.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~>3.95.0 |
+| <a name="provider_external"></a> [external](#provider\_external) | ~>2.3.3 |
 
 ## Modules
 
@@ -43,7 +48,6 @@ No requirements.
 | <a name="input_aqua_cspm_group_id"></a> [aqua\_cspm\_group\_id](#input\_aqua\_cspm\_group\_id) | CSPM group id | `string` | n/a | yes |
 | <a name="input_aqua_cspm_role_name"></a> [aqua\_cspm\_role\_name](#input\_aqua\_cspm\_role\_name) | Aqua Auto Discovery Scanner Role Name | `string` | n/a | yes |
 | <a name="input_aqua_custom_tags"></a> [aqua\_custom\_tags](#input\_aqua\_custom\_tags) | Client Additional Resource Tags | `map(string)` | n/a | yes |
-| <a name="input_aqua_deployment_method"></a> [aqua\_deployment\_method](#input\_aqua\_deployment\_method) | Aqua deployment method | `string` | `"Terraform"` | no |
 | <a name="input_aqua_event_subscriptions_name"></a> [aqua\_event\_subscriptions\_name](#input\_aqua\_event\_subscriptions\_name) | Aqua Event Subscriptions Name | `string` | n/a | yes |
 | <a name="input_aqua_management_group_id"></a> [aqua\_management\_group\_id](#input\_aqua\_management\_group\_id) | Aqua Management Group ID | `string` | n/a | yes |
 | <a name="input_aqua_network_security_group_name"></a> [aqua\_network\_security\_group\_name](#input\_aqua\_network\_security\_group\_name) | Aqua network security group name | `string` | n/a | yes |
@@ -72,5 +76,6 @@ No requirements.
 | <a name="output_aqua_cspm_scanner_role_definition_id"></a> [aqua\_cspm\_scanner\_role\_definition\_id](#output\_aqua\_cspm\_scanner\_role\_definition\_id) | The ID of the created AQUA CSPM role definition |
 | <a name="output_aqua_volscan_resource_group_name"></a> [aqua\_volscan\_resource\_group\_name](#output\_aqua\_volscan\_resource\_group\_name) | Aqua volume scanning Resource Group Name |
 | <a name="output_eventgrid_id"></a> [eventgrid\_id](#output\_eventgrid\_id) | EventGrid ID |
+| <a name="output_onboarding_status"></a> [onboarding\_status](#output\_onboarding\_status) | n/a |
 | <a name="output_resource_group_id"></a> [resource\_group\_id](#output\_resource\_group\_id) | Resource Group ID |
 <!-- END_TF_DOCS -->

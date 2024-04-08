@@ -38,6 +38,9 @@ output "resource_group_id" {
   description = "Resource Group ID"
 }
 
+output "onboarding_status" {
+  value = data.external.autoconnect_trigger_discovery.result.status
+}
 
 
 

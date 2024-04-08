@@ -119,33 +119,33 @@ prior to onboarding, the following resources with the following naming conventio
 | <a name="input_aqua_api_key"></a> [aqua\_api\_key](#input\_aqua\_api\_key) | Aqua API key | `string` | n/a | yes |
 | <a name="input_aqua_api_secret"></a> [aqua\_api\_secret](#input\_aqua\_api\_secret) | Aqua API secret key | `string` | n/a | yes |
 | <a name="input_aqua_autoconnect_url"></a> [aqua\_autoconnect\_url](#input\_aqua\_autoconnect\_url) | Aqua AutoConnect URL | `string` | n/a | yes |
-| <a name="input_aqua_configuration_id"></a> [aqua\_configuration\_id](#input\_aqua\_configuration\_id) | Aqua configuration id | `string` | n/a | yes |
-| <a name="input_create_network"></a> [create\_network](#input\_create\_network) | Whether to create the network resources | `bool` | `true` | no |
-| <a name="input_aqua_cspm_group_id"></a> [aqua\_cspm\_group\_id](#input\_aqua\_cspm\_group\_id) | CSPM group id | `string` | n/a | yes |
-| <a name="input_aqua_cspm_role_name"></a> [aqua\_cspm\_role\_name](#input\_aqua\_cspm\_role\_name) | Aqua Auto Discovery Scanner Role Name -  If not provided, the default value is set to 'Aqua\_Auto\_Discovery\_Scanner\_Role\_<subscription\_id>' in the 'aqua\_cspm\_role\_name' local | `string` | `""` | no |
-| <a name="input_aqua_custom_tags"></a> [aqua\_custom\_tags](#input\_aqua\_custom\_tags) | Client Additional Resource Tags | `map(string)` | `{}` | no |
+| <a name="input_aqua_configuration_id"></a> [aqua\_configuration\_id](#input\_aqua\_configuration\_id) | Aqua configuration ID | `string` | n/a | yes |
+| <a name="input_aqua_cspm_group_id"></a> [aqua\_cspm\_group\_id](#input\_aqua\_cspm\_group\_id) | CSPM group ID | `string` | n/a | yes |
+| <a name="input_aqua_cspm_role_name"></a> [aqua\_cspm\_role\_name](#input\_aqua\_cspm\_role\_name) | Aqua AutoConnect Scanner Role Name - The default value will be calculated as 'Aqua\_Auto\_Discovery\_Scanner\_Role\_<subscription\_id>' | `string` | `""` | no |
+| <a name="input_aqua_custom_tags"></a> [aqua\_custom\_tags](#input\_aqua\_custom\_tags) | Client additional resource tags | `map(string)` | `{}` | no |
 | <a name="input_aqua_event_subscriptions_name"></a> [aqua\_event\_subscriptions\_name](#input\_aqua\_event\_subscriptions\_name) | Aqua volume scanning Event Subscriptions Name | `string` | `"aqua-agentless-scanner"` | no |
 | <a name="input_aqua_management_group_id"></a> [aqua\_management\_group\_id](#input\_aqua\_management\_group\_id) | Management Group ID | `string` | `""` | no |
-| <a name="input_aqua_network_security_group_name"></a> [aqua\_network\_security\_group\_name](#input\_aqua\_network\_security\_group\_name) | Aqua volume scanning network security group name | `string` | `"aqua-agentless-scanner"` | no |
-| <a name="input_aqua_subnet_name"></a> [aqua\_subnet\_name](#input\_aqua\_subnet\_name) | Aqua volume scanning subnet name | `string` | `"aqua-agentless-scanner"` | no |
-| <a name="input_aqua_system_topics_name"></a> [aqua\_system\_topics\_name](#input\_aqua\_system\_topics\_name) | Aqua volume scanning Event Grid System Topic | `string` | `"aqua-agentless-scanner"` | no |
-| <a name="input_aqua_virtual_network_name"></a> [aqua\_virtual\_network\_name](#input\_aqua\_virtual\_network\_name) | Aqua volume scanning virtual network name | `string` | `"aqua-agentless-scanner"` | no |
+| <a name="input_aqua_network_security_group_name"></a> [aqua\_network\_security\_group\_name](#input\_aqua\_network\_security\_group\_name) | Aqua volume scanning Network Security Group Name | `string` | `"aqua-agentless-scanner"` | no |
+| <a name="input_aqua_subnet_name"></a> [aqua\_subnet\_name](#input\_aqua\_subnet\_name) | Aqua volume scanning Subnet Name | `string` | `"aqua-agentless-scanner"` | no |
+| <a name="input_aqua_system_topics_name"></a> [aqua\_system\_topics\_name](#input\_aqua\_system\_topics\_name) | Aqua volume scanning Event Grid System Topic Name | `string` | `"aqua-agentless-scanner"` | no |
+| <a name="input_aqua_virtual_network_name"></a> [aqua\_virtual\_network\_name](#input\_aqua\_virtual\_network\_name) | Aqua volume scanning Virtual Network Name | `string` | `"aqua-agentless-scanner"` | no |
 | <a name="input_aqua_volscan_api_token"></a> [aqua\_volscan\_api\_token](#input\_aqua\_volscan\_api\_token) | Aqua volume scanning API token | `string` | n/a | yes |
-| <a name="input_aqua_volscan_api_url"></a> [aqua\_volscan\_api\_url](#input\_aqua\_volscan\_api\_url) | Aqua Event Subscription webhook url | `string` | n/a | yes |
+| <a name="input_aqua_volscan_api_url"></a> [aqua\_volscan\_api\_url](#input\_aqua\_volscan\_api\_url) | Aqua Event Subscription webhook URL | `string` | n/a | yes |
 | <a name="input_aqua_volscan_resource_group_location"></a> [aqua\_volscan\_resource\_group\_location](#input\_aqua\_volscan\_resource\_group\_location) | Aqua volume scanning Resource Group Location | `string` | `"eastus"` | no |
 | <a name="input_aqua_volscan_resource_group_name"></a> [aqua\_volscan\_resource\_group\_name](#input\_aqua\_volscan\_resource\_group\_name) | Aqua volume scanning Resource Group Name | `string` | `"aqua-agentless-scanner"` | no |
-| <a name="input_aqua_volscan_scan_locations"></a> [aqua\_volscan\_scan\_locations](#input\_aqua\_volscan\_scan\_locations) | List of Azure locations to scan | `list(string)` | <pre>[<br>  "eastus",<br>  "eastus2",<br>  "southcentralus",<br>  "westus2",<br>  "westus3",<br>  "australiaeast",<br>  "southeastasia",<br>  "northeurope",<br>  "swedencentral",<br>  "uksouth",<br>  "westeurope",<br>  "centralus",<br>  "southafricanorth",<br>  "centralindia",<br>  "eastasia",<br>  "japaneast",<br>  "koreacentral",<br>  "canadacentral",<br>  "francecentral",<br>  "germanywestcentral",<br>  "norwayeast",<br>  "switzerlandnorth",<br>  "uaenorth",<br>  "brazilsouth",<br>  "qatarcentral",<br>  "northcentralus",<br>  "westus",<br>  "westcentralus",<br>  "australiacentral",<br>  "australiasoutheast",<br>  "japanwest",<br>  "koreasouth",<br>  "southindia",<br>  "westindia",<br>  "canadaeast",<br>  "ukwest"<br>]</pre> | no |
-| <a name="input_is_custom_name_vol_scan"></a> [is\_custom\_name\_vol\_scan](#input\_is\_custom\_name\_vol\_scan) | Is custom name volume scanning | `string` | `"false"` | no |
-| <a name="input_show_outputs"></a> [show\_outputs](#input\_show\_outputs) | Whether to show outputs after deployment | `bool` | `false` | no |
+| <a name="input_aqua_volscan_scan_locations"></a> [aqua\_volscan\_scan\_locations](#input\_aqua\_volscan\_scan\_locations) | List of Azure locations to scan - by default, all regions are selected | `list(string)` | <pre>[<br>  "eastus",<br>  "eastus2",<br>  "southcentralus",<br>  "westus2",<br>  "westus3",<br>  "australiaeast",<br>  "southeastasia",<br>  "northeurope",<br>  "swedencentral",<br>  "uksouth",<br>  "westeurope",<br>  "centralus",<br>  "southafricanorth",<br>  "centralindia",<br>  "eastasia",<br>  "japaneast",<br>  "koreacentral",<br>  "canadacentral",<br>  "francecentral",<br>  "germanywestcentral",<br>  "norwayeast",<br>  "switzerlandnorth",<br>  "uaenorth",<br>  "brazilsouth",<br>  "qatarcentral",<br>  "northcentralus",<br>  "westus",<br>  "westcentralus",<br>  "australiacentral",<br>  "australiasoutheast",<br>  "japanwest",<br>  "koreasouth",<br>  "southindia",<br>  "westindia",<br>  "canadaeast",<br>  "ukwest"<br>]</pre> | no |
+| <a name="input_create_network"></a> [create\_network](#input\_create\_network) | Toggle to create network resources | `bool` | `true` | no |
+| <a name="input_is_custom_name_vol_scan"></a> [is\_custom\_name\_vol\_scan](#input\_is\_custom\_name\_vol\_scan) | Toggle for custom names for volume scanning resources | `string` | `"false"` | no |
+| <a name="input_show_outputs"></a> [show\_outputs](#input\_show\_outputs) | Toggle to show summary outputs after deployment | `bool` | `false` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_application_id"></a> [application\_id](#output\_application\_id) | Application ID |
-| <a name="output_aqua_agentless_scanner_delete_role_definition_id"></a> [aqua\_agentless\_scanner\_delete\_role\_definition\_id](#output\_aqua\_agentless\_scanner\_delete\_role\_definition\_id) | The ID of the created AQUA agentless delete role definition |
-| <a name="output_aqua_agentless_scanner_role_definition_id"></a> [aqua\_agentless\_scanner\_role\_definition\_id](#output\_aqua\_agentless\_scanner\_role\_definition\_id) | The ID of the created AQUA agentless role definition |
-| <a name="output_aqua_cspm_scanner_role_definition_id"></a> [aqua\_cspm\_scanner\_role\_definition\_id](#output\_aqua\_cspm\_scanner\_role\_definition\_id) | The ID of the created AQUA CSPM role definition |
+| <a name="output_aqua_agentless_scanner_delete_role_definition_id"></a> [aqua\_agentless\_scanner\_delete\_role\_definition\_id](#output\_aqua\_agentless\_scanner\_delete\_role\_definition\_id) | The ID of the created Aqua agentless delete role definition |
+| <a name="output_aqua_agentless_scanner_role_definition_id"></a> [aqua\_agentless\_scanner\_role\_definition\_id](#output\_aqua\_agentless\_scanner\_role\_definition\_id) | The ID of the created Aqua agentless role definition |
+| <a name="output_aqua_cspm_scanner_role_definition_id"></a> [aqua\_cspm\_scanner\_role\_definition\_id](#output\_aqua\_cspm\_scanner\_role\_definition\_id) | The ID of the created Aqua CSPM role definition |
 | <a name="output_aqua_volscan_resource_group_name"></a> [aqua\_volscan\_resource\_group\_name](#output\_aqua\_volscan\_resource\_group\_name) | Aqua volume scanning Resource Group Name |
 | <a name="output_eventgrid_id"></a> [eventgrid\_id](#output\_eventgrid\_id) | EventGrid ID |
 | <a name="output_resource_group_id"></a> [resource\_group\_id](#output\_resource\_group\_id) | Resource Group ID |
