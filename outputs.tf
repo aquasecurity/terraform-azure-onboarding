@@ -10,17 +10,17 @@ output "eventgrid_id" {
 
 output "aqua_cspm_scanner_role_definition_id" {
   value       = var.show_outputs ? module.subscription.aqua_cspm_scanner_role_definition_id : null
-  description = "The ID of the created AQUA CSPM role definition"
+  description = "The ID of the created Aqua CSPM role definition"
 }
 
 output "aqua_agentless_scanner_role_definition_id" {
   value       = var.show_outputs ? module.subscription.aqua_agentless_scanner_role_definition_id : null
-  description = "The ID of the created AQUA agentless role definition"
+  description = "The ID of the created Aqua agentless role definition"
 }
 
 output "aqua_agentless_scanner_delete_role_definition_id" {
   value       = var.show_outputs ? module.subscription.aqua_agentless_scanner_delete_role_definition_id : null
-  description = "The ID of the created AQUA agentless delete role definition"
+  description = "The ID of the created Aqua agentless delete role definition"
 }
 
 output "aqua_volscan_resource_group_name" {
