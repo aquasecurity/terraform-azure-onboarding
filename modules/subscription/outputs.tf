@@ -1,3 +1,8 @@
+output "subscription_id" {
+  value       = local.subscription_id
+  description = "Subscription ID"
+}
+
 output "application_id" {
   value       = module.application.application_id
   description = "Application ID"
@@ -41,6 +46,18 @@ output "resource_group_id" {
 output "onboarding_status" {
   value = data.external.autoconnect_trigger_discovery.result.status
 }
+
+output "virtual_networks_names" {
+  value = module.network[0].virtual_networks_names
+  description = "Virtual Networks list"
+}
+
+output "security_groups_names" {
+  value = module.network[0].security_groups_names
+  description = "Security Groups list"
+}
+
+
 
 
 

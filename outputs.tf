@@ -1,3 +1,7 @@
+output "subscription_id" {
+  value       = var.show_outputs ? module.subscription.subscription_id : null
+  description = "Subscription ID"
+}
 output "application_id" {
   value       = var.show_outputs ? module.subscription.application_id : null
   description = "Application ID"
@@ -33,8 +37,12 @@ output "resource_group_id" {
   description = "Resource Group ID"
 }
 
+output "virtual_networks_names" {
+  value       = var.show_outputs ? module.subscription.virtual_networks_names : null
+  description = "Virtual Networks list"
+}
 
-
-
-
-
+output "security_groups_names" {
+  value       = var.show_outputs ? module.subscription.security_groups_names : null
+  description = "Security Groups list"
+}

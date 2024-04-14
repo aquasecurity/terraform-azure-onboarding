@@ -19,7 +19,7 @@ data "external" "autoconnect_trigger_discovery" {
     application_id                   = module.application.application_id
     directory_id                     = data.azuread_client_config.current.tenant_id
     application_password             = module.application.application_password
-    subscription_id                  = var.subscription_id
+    subscription_id                  = local.subscription_id
     aqua_cspm_group_id               = var.aqua_cspm_group_id
     aqua_configuration_id            = var.aqua_configuration_id
     organization_id                  = var.aqua_management_group_id

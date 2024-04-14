@@ -96,9 +96,7 @@ prior to onboarding, the following resources with the following naming conventio
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.95.0 |
+No providers.
 
 ## Modules
 
@@ -108,9 +106,7 @@ prior to onboarding, the following resources with the following naming conventio
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
+No resources.
 
 ## Inputs
 
@@ -149,4 +145,7 @@ prior to onboarding, the following resources with the following naming conventio
 | <a name="output_aqua_volscan_resource_group_name"></a> [aqua\_volscan\_resource\_group\_name](#output\_aqua\_volscan\_resource\_group\_name) | Aqua volume scanning Resource Group Name |
 | <a name="output_eventgrid_id"></a> [eventgrid\_id](#output\_eventgrid\_id) | EventGrid ID |
 | <a name="output_resource_group_id"></a> [resource\_group\_id](#output\_resource\_group\_id) | Resource Group ID |
+| <a name="output_security_groups_names"></a> [security\_groups\_names](#output\_security\_groups\_names) | Security Groups list |
+| <a name="output_subscription_id"></a> [subscription\_id](#output\_subscription\_id) | Subscription ID |
+| <a name="output_virtual_networks_names"></a> [virtual\_networks\_names](#output\_virtual\_networks\_names) | Virtual Networks list |
 <!-- END_TF_DOCS -->
