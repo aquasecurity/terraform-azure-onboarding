@@ -3,11 +3,6 @@ variable "env" {
   description = "Environment"
 }
 
-variable "subscription_id" {
-  type        = string
-  description = "Subscription ID"
-}
-
 variable "aqua_management_group_id" {
   type        = string
   description = "Aqua Management Group ID"
@@ -16,11 +11,6 @@ variable "aqua_management_group_id" {
 variable "aqua_custom_tags" {
   type        = map(string)
   description = "Client Additional Resource Tags"
-}
-
-variable "application_name" {
-  type        = string
-  description = "Aqua Auto Discovery Application Name"
 }
 
 variable "aqua_volscan_resource_group_name" {
@@ -36,11 +26,6 @@ variable "aqua_volscan_resource_group_location" {
 variable "aqua_cspm_role_name" {
   type        = string
   description = "Aqua Auto Discovery Scanner Role Name"
-}
-
-variable "cspm_role_scope" {
-  type        = string
-  description = "The scope at which the Role Definition applies to"
 }
 
 variable "create_network" {

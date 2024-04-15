@@ -34,13 +34,13 @@
 |------|------|
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
 | [azurerm_resource_group.resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/resource_group) | data source |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 | [external_external.autoconnect_trigger_discovery](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_application_name"></a> [application\_name](#input\_application\_name) | Aqua Auto Discovery Application Name | `string` | n/a | yes |
 | <a name="input_aqua_api_key"></a> [aqua\_api\_key](#input\_aqua\_api\_key) | Aqua API key | `string` | n/a | yes |
 | <a name="input_aqua_api_secret"></a> [aqua\_api\_secret](#input\_aqua\_api\_secret) | Aqua API secret key | `string` | n/a | yes |
 | <a name="input_aqua_autoconnect_url"></a> [aqua\_autoconnect\_url](#input\_aqua\_autoconnect\_url) | Aqua AutoConnect URL | `string` | n/a | yes |
@@ -60,10 +60,8 @@
 | <a name="input_aqua_volscan_resource_group_name"></a> [aqua\_volscan\_resource\_group\_name](#input\_aqua\_volscan\_resource\_group\_name) | Aqua volume scanning Resource Group Name | `string` | n/a | yes |
 | <a name="input_aqua_volscan_scan_locations"></a> [aqua\_volscan\_scan\_locations](#input\_aqua\_volscan\_scan\_locations) | Aqua volume scanning locations | `list(string)` | n/a | yes |
 | <a name="input_create_network"></a> [create\_network](#input\_create\_network) | Whether to create the network resources | `bool` | n/a | yes |
-| <a name="input_cspm_role_scope"></a> [cspm\_role\_scope](#input\_cspm\_role\_scope) | The scope at which the Role Definition applies to | `string` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | Environment | `string` | n/a | yes |
 | <a name="input_is_custom_name_vol_scan"></a> [is\_custom\_name\_vol\_scan](#input\_is\_custom\_name\_vol\_scan) | Is custom name vol scan | `string` | n/a | yes |
-| <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Subscription ID | `string` | n/a | yes |
 
 ## Outputs
 
@@ -78,4 +76,7 @@
 | <a name="output_eventgrid_id"></a> [eventgrid\_id](#output\_eventgrid\_id) | EventGrid ID |
 | <a name="output_onboarding_status"></a> [onboarding\_status](#output\_onboarding\_status) | n/a |
 | <a name="output_resource_group_id"></a> [resource\_group\_id](#output\_resource\_group\_id) | Resource Group ID |
+| <a name="output_security_groups_names"></a> [security\_groups\_names](#output\_security\_groups\_names) | Security Groups list |
+| <a name="output_subscription_id"></a> [subscription\_id](#output\_subscription\_id) | Subscription ID |
+| <a name="output_virtual_networks_names"></a> [virtual\_networks\_names](#output\_virtual\_networks\_names) | Virtual Networks list |
 <!-- END_TF_DOCS -->

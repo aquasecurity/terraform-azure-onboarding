@@ -1,15 +1,15 @@
 module "application" {
   source                        = "./modules/application"
-  application_name              = var.application_name
+  application_name              = local.application_name
 }
 
 module "iam" {
   source                           = "./modules/iam"
   env                              = var.env
-  subscription_id                  = var.subscription_id
+  subscription_id                  = local.subscription_id
   aqua_volscan_resource_group_name = var.aqua_volscan_resource_group_name
-  aqua_cspm_role_name              = var.aqua_cspm_role_name
-  cspm_role_scope                  = var.cspm_role_scope
+  aqua_cspm_role_name              = local.aqua_cspm_role_name
+  cspm_role_scope                  = local.cspm_role_scope
   principal_id                     = module.application.service_principal_object_id
   depends_on = [
     module.resource_group,
