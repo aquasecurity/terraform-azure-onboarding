@@ -19,7 +19,6 @@ module "subscription" {
 
   create_network                   = var.create_network
   aqua_virtual_network_name        = var.aqua_virtual_network_name
-  is_custom_name_vol_scan          = var.is_custom_name_vol_scan
   aqua_cspm_role_name              = var.aqua_cspm_role_name
   aqua_subnet_name                 = var.aqua_subnet_name
   aqua_network_security_group_name = var.aqua_network_security_group_name
