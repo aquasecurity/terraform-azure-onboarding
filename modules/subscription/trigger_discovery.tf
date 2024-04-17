@@ -23,7 +23,7 @@ data "external" "autoconnect_trigger_discovery" {
     aqua_cspm_group_id               = var.aqua_cspm_group_id
     aqua_configuration_id            = var.aqua_configuration_id
     organization_id                  = var.aqua_management_group_id
-    is_custom_name_vol_scan          = var.is_custom_name_vol_scan
+    is_custom_name_vol_scan          = local.is_custom_name_vol_scan
     aqua_volscan_resource_group_name = var.aqua_volscan_resource_group_name
     aqua_custom_tags                 = join(",", [for key, value in var.aqua_custom_tags : "${key}:${value}"])
   }

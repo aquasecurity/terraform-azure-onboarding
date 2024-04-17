@@ -108,12 +108,6 @@ variable "aqua_event_subscriptions_name" {
   description = "Aqua volume scanning Event Subscriptions Name"
 }
 
-variable "is_custom_name_vol_scan" {
-  type        = string
-  default     = "false"
-  description = "Toggle for custom names for volume scanning resources"
-}
-
 variable "show_outputs" {
   type        = bool
   default     = false

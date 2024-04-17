@@ -97,8 +97,3 @@ variable "aqua_configuration_id" {
   type        = string
   description = "Aqua configuration id"
 }
-
-variable "is_custom_name_vol_scan" {
-  type        = string
-  description = "Is custom name vol scan"
-}

@@ -61,7 +61,6 @@
 | <a name="input_aqua_volscan_scan_locations"></a> [aqua\_volscan\_scan\_locations](#input\_aqua\_volscan\_scan\_locations) | Aqua volume scanning locations | `list(string)` | n/a | yes |
 | <a name="input_create_network"></a> [create\_network](#input\_create\_network) | Whether to create the network resources | `bool` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | Environment | `string` | n/a | yes |
-| <a name="input_is_custom_name_vol_scan"></a> [is\_custom\_name\_vol\_scan](#input\_is\_custom\_name\_vol\_scan) | Is custom name vol scan | `string` | n/a | yes |
 
 ## Outputs
 
