@@ -11,8 +11,16 @@ resource "azurerm_eventgrid_system_topic" "aqua_agentless_scanner" {
 
 resource "azurerm_eventgrid_event_subscription" "aqua_agentless_scanner" {
   name                  = var.aqua_event_subscriptions_name
-  event_delivery_schema = "EventGridSchema"
   scope                 = var.resource_group_id
+  event_delivery_schema = "EventGridSchema"
+
+  advanced_filtering_on_arrays_enabled = true
+
+  included_event_types = [
+    "Microsoft.Resources.ResourceWriteSuccess",
+    "Microsoft.Resources.ResourceDeleteSuccess",
+  ]
+
   webhook_endpoint {
     url                               = var.aqua_volscan_api_url
     max_events_per_batch              = 1
@@ -20,13 +28,13 @@ resource "azurerm_eventgrid_event_subscription" "aqua_agentless_scanner" {
   }
 
   delivery_property {
-    header_name = local.event_subscription_delivery_name
-    type        = local.event_subscription_delivery_type
+    header_name = "x-vs-api-key"
+    type        = "Static"
     value       = var.aqua_volscan_api_token
     secret      = true
   }
 
   subject_filter {
-    subject_ends_with = local.event_subscription_filter
+    subject_ends_with = "-aas"
   }
 }

@@ -11,5 +11,6 @@ output "application_id" {
 
 output "application_password" {
   value       = azuread_application_password.aqua_cspm_scanner.value
+  sensitive   = true
   description = "Application password"
 }

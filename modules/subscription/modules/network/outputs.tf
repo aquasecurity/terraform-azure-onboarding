@@ -6,7 +6,7 @@ output "virtual_networks_names" {
       name = network.name
     }
   ]
-  description = "Virtual Networks list"
+  description = "Virtual Networks names"
 }
 
 output "security_groups_names" {
@@ -16,7 +16,7 @@ output "security_groups_names" {
       name = security_group.name
     }
   ]
-  description = "Security Groups list"
+  description = "Security Groups names"
 }
 
 

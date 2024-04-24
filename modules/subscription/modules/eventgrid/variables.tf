@@ -20,6 +20,7 @@ variable "aqua_volscan_api_url" {
 
 variable "aqua_volscan_api_token" {
   type        = string
+  sensitive   = true
   description = "Aqua volume scanning API token"
 }
 
