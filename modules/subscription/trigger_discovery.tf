@@ -3,8 +3,6 @@
 # with the onboarding status if it successfully finished.
 data "external" "autoconnect_trigger_discovery" {
   depends_on = [
-    module.application,
-    module.iam,
     module.resource_group,
     module.network,
     module.eventgrid,
@@ -16,13 +14,13 @@ data "external" "autoconnect_trigger_discovery" {
     aqua_api_key                     = var.aqua_api_key
     aqua_api_secret                  = var.aqua_api_secret
     aqua_autoconnect_url             = var.aqua_autoconnect_url
-    application_id                   = module.application.application_id
-    directory_id                     = data.azuread_client_config.current.tenant_id
-    application_password             = module.application.application_password
-    subscription_id                  = local.subscription_id
+    application_id                   = var.application_id
+    application_password             = var.application_password
+    directory_id                     = var.tenant_id
+    organization_id                  = var.management_group_id == "single-subscription" ? "" : var.management_group_id
+    subscription_id                  = var.subscription_id
     aqua_cspm_group_id               = var.aqua_cspm_group_id
     aqua_configuration_id            = var.aqua_configuration_id
-    organization_id                  = var.aqua_management_group_id
     is_custom_name_vol_scan          = local.is_custom_name_vol_scan
     aqua_volscan_resource_group_name = var.aqua_volscan_resource_group_name
     aqua_custom_tags                 = join(",", [for key, value in var.aqua_custom_tags : "${key}:${value}"])

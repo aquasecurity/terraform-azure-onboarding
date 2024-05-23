@@ -1,11 +1,42 @@
-variable "env" {
+variable "aqua_bucket_name" {
   type        = string
-  description = "Environment"
+  description = "Aqua Bucket Name"
 }
 
-variable "aqua_management_group_id" {
+variable "tenant_id" {
+  type        = string
+  description = "Tenant ID"
+}
+
+variable "onboarding_type" {
+  type        = string
+  description = "The type of onboarding"
+}
+
+variable "management_group_id" {
   type        = string
   description = "Aqua Management Group ID"
+}
+
+variable "principal_id" {
+  type        = string
+  description = "The ID of the Service Principal to assign the Role Definition to"
+}
+
+variable "application_id" {
+  type        = string
+  description = "Application ID - represented by the Service principal client ID associated with the application"
+}
+
+variable "application_password" {
+  type        = string
+  sensitive   = true
+  description = "Application password"
+}
+
+variable "subscription_id" {
+  type        = string
+  description = "Subscription ID"
 }
 
 variable "aqua_custom_tags" {
@@ -21,11 +52,6 @@ variable "aqua_volscan_resource_group_name" {
 variable "aqua_volscan_resource_group_location" {
   type        = string
   description = "Aqua volume scanning Resource Group Location"
-}
-
-variable "aqua_cspm_role_name" {
-  type        = string
-  description = "Aqua Auto Discovery Scanner Role Name"
 }
 
 variable "create_network" {
@@ -70,16 +96,19 @@ variable "aqua_volscan_api_url" {
 
 variable "aqua_volscan_api_token" {
   type        = string
+  sensitive   = true
   description = "Aqua volume scanning API token"
 }
 
 variable "aqua_api_key" {
   type        = string
+  sensitive   = true
   description = "Aqua API key"
 }
 
 variable "aqua_api_secret" {
   type        = string
+  sensitive   = true
   description = "Aqua API secret key"
 }
 

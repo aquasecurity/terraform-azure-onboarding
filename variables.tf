@@ -1,7 +1,25 @@
-variable "aqua_management_group_id" {
+variable "onboarding_type" {
+  type = string
+  validation {
+    condition     = var.onboarding_type == "single-subscription" || var.onboarding_type == "management-group"
+    error_message = "Only 'single-subscription' or 'management-group' onboarding types are supported"
+  }
+  description = "The type of onboarding. Valid values are 'single-subscription' or 'management-group' onboarding types"
+}
+
+variable "aqua_bucket_name" {
+  description = "Aqua Bucket Name"
+  type        = string
+  validation {
+    condition     = length(var.aqua_bucket_name) > 0
+    error_message = "Aqua Bucket Name must not be empty"
+  }
+}
+
+variable "management_group_id" {
   type        = string
   default     = ""
-  description = "Management Group ID"
+  description = "Aqua Management Group ID - Relevant when onboarding_type is management-group"
 }
 
 variable "aqua_custom_tags" {
@@ -119,6 +137,11 @@ variable "aqua_autoconnect_url" {
   description = "Aqua AutoConnect URL"
 }
 
+variable "aqua_cspm_url" {
+  type        = string
+  description = "Aqua CSPM url"
+}
+
 variable "aqua_volscan_api_url" {
   type        = string
   description = "Aqua Event Subscription webhook URL"
@@ -126,16 +149,19 @@ variable "aqua_volscan_api_url" {
 
 variable "aqua_volscan_api_token" {
   type        = string
+  sensitive   = true
   description = "Aqua volume scanning API token"
 }
 
 variable "aqua_api_key" {
   type        = string
+  sensitive   = true
   description = "Aqua API key"
 }
 
 variable "aqua_api_secret" {
   type        = string
+  sensitive   = true
   description = "Aqua API secret key"
 }
 

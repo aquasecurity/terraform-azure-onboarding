@@ -1,36 +1,11 @@
-output "subscription_id" {
-  value       = local.subscription_id
-  description = "Subscription ID"
-}
-
-output "application_id" {
-  value       = module.application.application_id
-  description = "Application ID"
-}
-
-output "application_password" {
-  value       = module.application.application_password
-  description = "Application Password"
+output "aqua_agentless_scanner_delete_role_definition_id" {
+  value       = module.iam.aqua_agentless_scanner_delete_role_definition_id
+  description = "The ID of the created Aqua agentless delete role definition"
 }
 
 output "eventgrid_id" {
   value       = module.eventgrid.eventgrid_id
   description = "EventGrid ID"
-}
-
-output "aqua_cspm_scanner_role_definition_id" {
-  value       = module.iam.aqua_cspm_scanner_role_definition_id
-  description = "The ID of the created AQUA CSPM role definition"
-}
-
-output "aqua_agentless_scanner_role_definition_id" {
-  value       = module.iam.aqua_agentless_scanner_role_definition_id
-  description = "The ID of the created AQUA agentless role definition"
-}
-
-output "aqua_agentless_scanner_delete_role_definition_id" {
-  value       = module.iam.aqua_agentless_scanner_delete_role_definition_id
-  description = "The ID of the created AQUA agentless delete role definition"
 }
 
 output "aqua_volscan_resource_group_name" {
@@ -43,20 +18,19 @@ output "resource_group_id" {
   description = "Resource Group ID"
 }
 
-output "onboarding_status" {
-  value = data.external.autoconnect_trigger_discovery.result.status
-}
-
 output "virtual_networks_names" {
-  value = module.network[0].virtual_networks_names
-  description = "Virtual Networks list"
+  value       = var.create_network ? module.network[0].virtual_networks_names : null
+  description = "Virtual Networks names"
 }
 
 output "security_groups_names" {
-  value = module.network[0].security_groups_names
-  description = "Security Groups list"
+  value       = var.create_network ? module.network[0].security_groups_names : null
+  description = "Security Groups names"
 }
 
+output "onboarding_status" {
+  value = data.external.autoconnect_trigger_discovery.result.status
+}
 
 
 
