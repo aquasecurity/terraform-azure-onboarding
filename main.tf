@@ -28,7 +28,7 @@ module "management_group" {
   aqua_configuration_id                = var.aqua_configuration_id
   aqua_cspm_group_id                   = var.aqua_cspm_group_id
   aqua_cspm_url                        = var.aqua_cspm_url
-  aqua_custom_tags                     = {}
+  aqua_custom_tags                     = var.aqua_custom_tags
   management_group_id                  = var.management_group_id
   aqua_network_security_group_name     = var.aqua_network_security_group_name
   aqua_volscan_resource_group_location = var.aqua_volscan_resource_group_location

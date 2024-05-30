@@ -48,7 +48,7 @@ resource "azurerm_management_group_template_deployment" "management_group_deploy
       "value" = var.application_password
     },
     "postInstallResourceTags" : {
-      "value" = ""
+      "value" = join(",", [for key, value in var.aqua_custom_tags : "${key}:${value}"])
     },
     "servicePrincipalId" = {
       "value" = var.service_principal_id
