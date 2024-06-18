@@ -22,7 +22,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azurerm_eventgrid_event_subscription.aqua_agentless_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventgrid_event_subscription) | resource |
+| [azurerm_eventgrid_system_topic_event_subscription.aqua_agentless_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventgrid_event_subscription) | resource |
 | [azurerm_eventgrid_system_topic.aqua_agentless_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventgrid_system_topic) | resource |
 
 ## Inputs
