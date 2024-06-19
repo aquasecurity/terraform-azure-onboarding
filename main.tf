@@ -1,7 +1,11 @@
 
 module "application" {
-  source           = "./modules/application"
-  application_name = local.application_name
+  source                      = "./modules/application"
+  application_name            = local.application_name
+  create_service_principal    = var.create_service_principal
+  application_id              = var.application_id
+  application_password        = var.application_password
+  service_principal_object_id = var.service_principal_object_id
 }
 
 module "iam" {

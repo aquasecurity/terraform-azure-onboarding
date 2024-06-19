@@ -34,7 +34,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_application_id"></a> [application\_id](#input\_application\_id) | Application ID - represented by the Service principal client ID associated with the application (in case that var.create\_service\_principal is false) | `string` | n/a | yes |
 | <a name="input_application_name"></a> [application\_name](#input\_application\_name) | Application Name | `string` | n/a | yes |
+| <a name="input_application_password"></a> [application\_password](#input\_application\_password) | Application password (in case that var.create\_service\_principal is false) | `string` | n/a | yes |
+| <a name="input_create_service_principal"></a> [create\_service\_principal](#input\_create\_service\_principal) | Toggle to create service principal | `bool` | n/a | yes |
+| <a name="input_service_principal_object_id"></a> [service\_principal\_object\_id](#input\_service\_principal\_object\_id) | Service principal object ID associated with the application (in case that var.create\_service\_principal is false) | `string` | n/a | yes |
 
 ## Outputs
 

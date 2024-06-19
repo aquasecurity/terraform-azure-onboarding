@@ -52,6 +52,31 @@ variable "create_network" {
   description = "Toggle to create network resources"
 }
 
+variable "create_service_principal" {
+  type        = bool
+  default     = true
+  description = "Toggle to create service principal"
+}
+
+variable "service_principal_object_id" {
+  type        = string
+  description = "Service principal object ID associated with the application (in case that var.create_service_principal is false)"
+  default     = ""
+}
+
+variable "application_id" {
+  type        = string
+  description = "Application ID - represented by the Service principal client ID associated with the application (in case that var.create_service_principal is false)"
+  default     = ""
+}
+
+variable "application_password" {
+  type        = string
+  sensitive   = true
+  description = "Application password (in case that var.create_service_principal is false)"
+  default     = ""
+}
+
 variable "aqua_volscan_scan_locations" {
   type = list(string)
   default = [
