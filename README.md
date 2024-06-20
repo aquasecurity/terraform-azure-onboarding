@@ -18,6 +18,7 @@ to enable seamless integration with Aqua’s platform.
 - [Usage](#usage)
 - [Examples](#examples)
 - [Using Existing Network](#using-existing-network)
+- [Using Existing Service Principal](#using-existing-service-principal)
 - [Requirements](#requirements)
 - [Providers](#providers)
 - [Modules](#modules)
@@ -108,6 +109,64 @@ prior to onboarding, the following resources with the following naming conventio
 * Subnet (attached to the virtual network):
   * Name `<resource-group-name>`. E.g., `aqua-agentless-scanner`
 
+## Using Existing Service Principal
+
+If you prefer to use an existing service principal instead of Aqua provisioning a new one, 
+you can do so by setting `create_service_principal = false` in the module's input variables. 
+
+In this case, you will need to create the service principal and application prior to onboarding, using the following configuration:
+
+* **Application Name**:
+  * Management group: `aqua-cspm-scanner-<tenant_id>-<management_group_id>`
+  * Single subscription: `aqua-cspm-scanner-<subscription_id>`
+* **Application Password**:
+  * Description: `rbac`
+  * End date: Aqua recommends `17520h` or more
+* **Service Principal**:
+  * ID: `<Application ID>` or `<Object ID>` of the associated application
+
+#### Example using Azure CLI
+
+```shell
+  # Creating a service principal for 30 years (this also creates an application)
+  az ad sp create-for-rbac --only-show-errors --name aqua-cspm-scanner-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --years 30 --output json
+  
+  # Output
+  {
+    "appId": "<appId>",
+    "displayName": "<displayName>",
+    "password": "<password>",
+    "tenant": "<tenant>"
+  }
+  
+  # Show service principal to fetch the id (service_principal_object_id)
+  az ad sp show --id <appId> | jq .id
+  
+  # Output
+  "<id>"
+```
+
+#### Example using Terraform
+
+[Visit the application module](https://github.com/aquasecurity/terraform-azure-onboarding/blob/main/modules/application/main.tf)
+
+---
+
+Supply the service principal object id, application id, and application password in the module's input variables.
+
+For example:
+
+```hcl
+  module "aqua_azure_onboarding" {
+    # (unchanged)
+    create_service_principal             = false                        # Set to false to skip service principal creation
+    service_principal_object_id          = "<service-principal-object>" # Referencing service principal object ID created prior to onboarding
+    application_id                       = "<application-id>"           # Referencing application ID created prior to onboarding
+    application_password                 = "<application-password>"     # Referencing application password created prior to onboarding
+    # (unchanged)
+  }
+```
+
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -124,8 +183,8 @@ prior to onboarding, the following resources with the following naming conventio
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.47.0 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.95.0 |
+| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | ~>2.47.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~>3.95.0 |
 
 ## Modules
 
@@ -148,6 +207,8 @@ prior to onboarding, the following resources with the following naming conventio
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_application_id"></a> [application\_id](#input\_application\_id) | Application ID - represented by the Service principal client ID associated with the application (in case that var.create\_service\_principal is false) | `string` | `""` | no |
+| <a name="input_application_password"></a> [application\_password](#input\_application\_password) | Application password (in case that var.create\_service\_principal is false) | `string` | `""` | no |
 | <a name="input_aqua_api_key"></a> [aqua\_api\_key](#input\_aqua\_api\_key) | Aqua API key | `string` | n/a | yes |
 | <a name="input_aqua_api_secret"></a> [aqua\_api\_secret](#input\_aqua\_api\_secret) | Aqua API secret key | `string` | n/a | yes |
 | <a name="input_aqua_autoconnect_url"></a> [aqua\_autoconnect\_url](#input\_aqua\_autoconnect\_url) | Aqua AutoConnect URL | `string` | n/a | yes |
@@ -168,8 +229,10 @@ prior to onboarding, the following resources with the following naming conventio
 | <a name="input_aqua_volscan_resource_group_name"></a> [aqua\_volscan\_resource\_group\_name](#input\_aqua\_volscan\_resource\_group\_name) | Aqua volume scanning Resource Group Name | `string` | `"aqua-agentless-scanner"` | no |
 | <a name="input_aqua_volscan_scan_locations"></a> [aqua\_volscan\_scan\_locations](#input\_aqua\_volscan\_scan\_locations) | List of Azure locations to scan - by default, all regions are selected | `list(string)` | <pre>[<br>  "eastus",<br>  "eastus2",<br>  "southcentralus",<br>  "westus2",<br>  "westus3",<br>  "australiaeast",<br>  "southeastasia",<br>  "northeurope",<br>  "swedencentral",<br>  "uksouth",<br>  "westeurope",<br>  "centralus",<br>  "southafricanorth",<br>  "centralindia",<br>  "eastasia",<br>  "japaneast",<br>  "koreacentral",<br>  "canadacentral",<br>  "francecentral",<br>  "germanywestcentral",<br>  "norwayeast",<br>  "switzerlandnorth",<br>  "uaenorth",<br>  "brazilsouth",<br>  "qatarcentral",<br>  "northcentralus",<br>  "westus",<br>  "westcentralus",<br>  "australiacentral",<br>  "australiasoutheast",<br>  "japanwest",<br>  "koreasouth",<br>  "southindia",<br>  "westindia",<br>  "canadaeast",<br>  "ukwest"<br>]</pre> | no |
 | <a name="input_create_network"></a> [create\_network](#input\_create\_network) | Toggle to create network resources | `bool` | `true` | no |
+| <a name="input_create_service_principal"></a> [create\_service\_principal](#input\_create\_service\_principal) | Toggle to create service principal | `bool` | `true` | no |
 | <a name="input_management_group_id"></a> [management\_group\_id](#input\_management\_group\_id) | Aqua Management Group ID - Relevant when onboarding\_type is management-group | `string` | `""` | no |
 | <a name="input_onboarding_type"></a> [onboarding\_type](#input\_onboarding\_type) | The type of onboarding. Valid values are 'single-subscription' or 'management-group' onboarding types | `string` | n/a | yes |
+| <a name="input_service_principal_object_id"></a> [service\_principal\_object\_id](#input\_service\_principal\_object\_id) | Service principal object ID associated with the application (in case that var.create\_service\_principal is false) | `string` | `""` | no |
 | <a name="input_show_outputs"></a> [show\_outputs](#input\_show\_outputs) | Toggle to show summary outputs after deployment | `bool` | `false` | no |
 
 ## Outputs
