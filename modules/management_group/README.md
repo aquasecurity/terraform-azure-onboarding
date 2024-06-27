@@ -23,7 +23,9 @@ This Terraform module creates the Management Group resources - on Azure.
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_continuous_onboarding"></a> [continuous\_onboarding](#module\_continuous\_onboarding) | ./modules/continuous_onboarding | n/a |
 
 ## Resources
 
@@ -63,5 +65,12 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_aqua_connected_subscriptions"></a> [aqua\_connected\_subscriptions](#output\_aqua\_connected\_subscriptions) | Aqua connected subscriptions |
+| <a name="output_continuous_onboarding_error"></a> [continuous\_onboarding\_error](#output\_continuous\_onboarding\_error) | Continuous onboarding error |
+| <a name="output_management_group_subscriptions"></a> [management\_group\_subscriptions](#output\_management\_group\_subscriptions) | Management group subscription list |
+| <a name="output_offboard_subscription_results"></a> [offboard\_subscription\_results](#output\_offboard\_subscription\_results) | Offboard status |
+| <a name="output_offboard_subscriptions"></a> [offboard\_subscriptions](#output\_offboard\_subscriptions) | Offboard subscriptions |
+| <a name="output_onboard_subscriptions"></a> [onboard\_subscriptions](#output\_onboard\_subscriptions) | Subscriptions to be onboarded |
 <!-- END_TF_DOCS -->

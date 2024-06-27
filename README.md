@@ -242,10 +242,15 @@ For example:
 | <a name="output_application_id"></a> [application\_id](#output\_application\_id) | Application ID |
 | <a name="output_aqua_agentless_scanner_delete_role_definition_id"></a> [aqua\_agentless\_scanner\_delete\_role\_definition\_id](#output\_aqua\_agentless\_scanner\_delete\_role\_definition\_id) | The ID of the created Aqua agentless delete role definition |
 | <a name="output_aqua_agentless_scanner_role_definition_id"></a> [aqua\_agentless\_scanner\_role\_definition\_id](#output\_aqua\_agentless\_scanner\_role\_definition\_id) | The ID of the created Aqua agentless role definition |
+| <a name="output_aqua_connected_subscriptions"></a> [aqua\_connected\_subscriptions](#output\_aqua\_connected\_subscriptions) | Aqua connected subscriptions |
 | <a name="output_aqua_cspm_scanner_role_definition_id"></a> [aqua\_cspm\_scanner\_role\_definition\_id](#output\_aqua\_cspm\_scanner\_role\_definition\_id) | The ID of the created Aqua CSPM role definition |
 | <a name="output_aqua_volscan_resource_group_name"></a> [aqua\_volscan\_resource\_group\_name](#output\_aqua\_volscan\_resource\_group\_name) | Aqua volume scanning Resource Group Name |
 | <a name="output_eventgrid_id"></a> [eventgrid\_id](#output\_eventgrid\_id) | EventGrid ID |
 | <a name="output_management_group_name"></a> [management\_group\_name](#output\_management\_group\_name) | Management Group name |
+| <a name="output_management_group_subscriptions"></a> [management\_group\_subscriptions](#output\_management\_group\_subscriptions) | Management group subscription list |
+| <a name="output_offboard_subscription_results"></a> [offboard\_subscription\_results](#output\_offboard\_subscription\_results) | Offboard status |
+| <a name="output_offboard_subscriptions"></a> [offboard\_subscriptions](#output\_offboard\_subscriptions) | Offboard subscriptions |
+| <a name="output_onboard_subscriptions"></a> [onboard\_subscriptions](#output\_onboard\_subscriptions) | Subscriptions to be onboarded |
 | <a name="output_resource_group_id"></a> [resource\_group\_id](#output\_resource\_group\_id) | Resource Group ID |
 | <a name="output_security_groups_names"></a> [security\_groups\_names](#output\_security\_groups\_names) | Security Groups names |
 | <a name="output_subscription_id"></a> [subscription\_id](#output\_subscription\_id) | Subscription ID |
