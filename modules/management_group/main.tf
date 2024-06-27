@@ -1,5 +1,16 @@
+module "continuous_onboarding" {
+  source = "./modules/continuous_onboarding"
+
+  management_group_id  = var.management_group_id
+  subscription_ids     = var.subscription_ids
+  aqua_api_secret      = var.aqua_api_secret
+  aqua_api_key         = var.aqua_api_key
+  aqua_autoconnect_url = var.aqua_autoconnect_url
+}
+
 
 resource "azurerm_management_group_template_deployment" "management_group_deployment" {
+  count               = local.subscription_ids == "" ? 0 : 1
   name                = "aqua-agentless-scanner"
   location            = local.aqua_volscan_template_location
   management_group_id = "/providers/Microsoft.Management/managementGroups/${var.management_group_id}"
@@ -7,6 +18,9 @@ resource "azurerm_management_group_template_deployment" "management_group_deploy
   parameters_content = jsonencode({
     "subscriptionIds" : {
       "value" = var.subscription_ids
+    },
+    "onboardSubscriptionIds" : {
+      "value" = local.subscription_ids
     },
     "resourceGroupLocation" = {
       "value" = local.aqua_volscan_template_location

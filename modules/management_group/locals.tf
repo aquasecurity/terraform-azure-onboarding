@@ -1,5 +1,6 @@
 
 locals {
+  subscription_ids                                     = split(", ", module.continuous_onboarding.onboard_subscriptions)
   aqua_volscan_template_location                       = var.aqua_volscan_resource_group_location
   autoconnect_agentless_scanner_delete_role_definition = data.http.autoconnect_agentless_scanner_role.response_body
   aqua_agentless_delete_role_name                      = "aqua-agentless-scanner-delete-role-${var.management_group_id}"
