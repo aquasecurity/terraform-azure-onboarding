@@ -1,7 +1,7 @@
 variable "aqua_volscan_api_token" {
   type        = string
-  sensitive   = true
   description = "Aqua volume scanning API token"
+  sensitive   = true
 }
 
 variable "aqua_cspm_group_id" {
@@ -36,8 +36,8 @@ variable "application_id" {
 
 variable "application_password" {
   type        = string
-  sensitive   = true
   description = "Application password"
+  sensitive   = true
 }
 
 variable "aqua_volscan_resource_group_location" {
@@ -62,38 +62,34 @@ variable "aqua_volscan_api_url" {
 
 variable "aqua_system_topics_name" {
   type        = string
-  default     = "aqua-agentless-scanner"
   description = "Aqua volume scanning Event Grid System Topic Name"
 }
 
 variable "aqua_event_subscriptions_name" {
   type        = string
-  default     = "aqua-agentless-scanner"
   description = "Aqua volume scanning Event Subscriptions Name"
 }
 
 variable "aqua_subnet_name" {
   type        = string
-  default     = "aqua-agentless-scanner"
   description = "Aqua volume scanning Subnet Name"
 }
 
 variable "aqua_volscan_resource_group_name" {
   type        = string
-  default     = "aqua-agentless-scanner"
   description = "Aqua volume scanning Resource Group Name"
 }
 
 variable "aqua_api_secret" {
   type        = string
-  sensitive   = true
   description = "Aqua API secret key"
+  sensitive   = true
 }
 
 variable "aqua_api_key" {
   type        = string
-  sensitive   = true
   description = "Aqua API key"
+  sensitive   = true
 }
 
 variable "aqua_autoconnect_url" {

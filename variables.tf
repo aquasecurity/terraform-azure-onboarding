@@ -144,7 +144,6 @@ variable "aqua_system_topics_name" {
   description = "Aqua volume scanning Event Grid System Topic Name"
 }
 
-
 variable "aqua_event_subscriptions_name" {
   type        = string
   default     = "aqua-agentless-scanner"
