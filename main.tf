@@ -52,6 +52,7 @@ module "subscription" {
   onboarding_type                      = var.onboarding_type
   principal_id                         = module.application.service_principal_object_id
   subscription_id                      = data.azurerm_subscription.current[0].subscription_id
+  subscription_name                    = data.azurerm_subscription.current[0].display_name
   management_group_id                  = var.management_group_id
   tenant_id                            = local.tenant_id
   application_id                       = module.application.application_id

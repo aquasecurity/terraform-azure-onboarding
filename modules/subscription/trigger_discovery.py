@@ -14,6 +14,7 @@ aqua_api_key                     = query.get("aqua_api_key", "")
 aqua_api_secret                  = query.get("aqua_api_secret", "")
 application_password             = query.get("application_password", "")
 subscription_id                  = query.get("subscription_id", "")
+subscription_name                = query.get("subscription_name", "")
 aqua_cspm_group_id               = query.get("aqua_cspm_group_id", "")
 aqua_configuration_id            = query.get("aqua_configuration_id", "")
 organization_id                  = query.get("organization_id", "")
@@ -37,7 +38,7 @@ def get_headers():
     timestamp = str(int(time.time() * 1000))
     internal_signature = get_signature(aqua_api_secret, timestamp, get_signature_internal_path, "GET")
     body_cspm = ('{"autoconnect":true,"cloud":"azure","connection":{"azure":{"application_id":"' +
-                     application_id + '","directory_id":"' + directory_id + '","key_value":"' +
+                     application_id + '","directory_id":"' + directory_id + '","display_name":"' + subscription_name + '","key_value":"' +
                      application_password + '","subscription_id":"' + subscription_id +
                      '"}},"group_id":' + str(int(aqua_cspm_group_id)) + ',"name":"' + subscription_id + '"}'
                  )
@@ -61,6 +62,7 @@ def onboard_subscription():
         "deployment_method": deployment_method,
         "is_custom_name_vol_scan": is_custom_name_vol_scan,
         "resource_group_name_vol_scan": aqua_volscan_resource_group_name,
+        "subscription_name": subscription_name,
         "payload": {
             "subscription_id": subscription_id,
             "password": application_password,
