@@ -19,6 +19,7 @@ data "external" "autoconnect_trigger_discovery" {
     directory_id                     = var.tenant_id
     organization_id                  = var.management_group_id == "single-subscription" ? "" : var.management_group_id
     subscription_id                  = var.subscription_id
+    subscription_name                = var.subscription_name
     aqua_cspm_group_id               = var.aqua_cspm_group_id
     aqua_configuration_id            = var.aqua_configuration_id
     is_custom_name_vol_scan          = local.is_custom_name_vol_scan

@@ -14,9 +14,9 @@ resource "azurerm_virtual_network" "aqua_agentless_scanner" {
   location            = var.aqua_volscan_scan_locations[count.index]
   resource_group_name = var.aqua_volscan_resource_group_name
   subnet {
-    name                 = var.aqua_subnet_name
-    security_group       = azurerm_network_security_group.aqua_agentless_scanner[var.aqua_volscan_scan_locations[count.index]].id
-    address_prefix       = local.subnet_address_prefixes
+    name           = var.aqua_subnet_name
+    security_group = azurerm_network_security_group.aqua_agentless_scanner[var.aqua_volscan_scan_locations[count.index]].id
+    address_prefix = local.subnet_address_prefixes
   }
-  tags                = var.tags
+  tags = var.tags
 }

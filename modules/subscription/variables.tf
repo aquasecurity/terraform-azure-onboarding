@@ -39,6 +39,11 @@ variable "subscription_id" {
   description = "Subscription ID"
 }
 
+variable "subscription_name" {
+  type        = string
+  description = "Subscription Name"
+}
+
 variable "aqua_custom_tags" {
   type        = map(string)
   description = "Client Additional Resource Tags"
