@@ -40,6 +40,10 @@ module "management_group" {
   aqua_volscan_api_token               = var.aqua_volscan_api_token
   aqua_volscan_api_url                 = var.aqua_volscan_api_url
   aqua_volscan_scan_locations          = var.aqua_volscan_scan_locations
+  aqua_event_subscriptions_name        = var.aqua_event_subscriptions_name
+  aqua_subnet_name                     = var.aqua_subnet_name
+  aqua_system_topics_name              = var.aqua_system_topics_name
+  aqua_volscan_resource_group_name     = var.aqua_volscan_resource_group_name
   service_principal_id                 = module.application.service_principal_object_id
   subscription_ids                     = local.subscription_ids
   depends_on                           = [module.iam]
