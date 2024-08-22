@@ -17,14 +17,10 @@ to enable seamless integration with Aqua’s platform.
 - [Pre-requisites](#pre-requisites)
 - [Usage](#usage)
 - [Examples](#examples)
+- [Continuous Management Group Onboarding and Offboarding](#continuous-management-group-onboarding-and-offboarding)
 - [Using Existing Network](#using-existing-network)
 - [Using Existing Service Principal](#using-existing-service-principal)
-- [Requirements](#requirements)
-- [Providers](#providers)
-- [Modules](#modules)
-- [Resources](#resources)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
+
 
 ## Pre-requisites
 
@@ -87,6 +83,65 @@ module "aqua_azure_onboarding" {
   aqua_api_secret                      = "aqua-api-secret"
   aqua_custom_tags                     = { aqua = "true" }
 }
+```
+---
+
+## Continuous Management Group Onboarding and Offboarding
+
+To automate and simplify the process of onboarding new subscriptions and offboarding deprecated subscriptions from an existing management group onto Aqua, incorporate this Terraform module into a CI/CD pipeline or set up scheduled Terraform apply runs. Upon every run of the pipeline / scheduled runs, Aqua will re-validate the state and onboard / offboard the delta subscriptions.
+
+### CI/CD Pipeline Integration
+
+- Integrate this Terraform module onto your CI/CD pipeline.
+- Configure the pipeline to trigger a Terraform plan and apply whenever a subscription is added or removed.
+
+### Scheduled Terraform Apply
+
+- Automate the process by scheduling regular Terraform apply runs using a cron job or a CI/CD scheduling mechanism
+
+##### GitHub Actions example
+
+- This GitHub Actions workflow automates onboarding and offboarding of Azure management group subscriptions. It can run on a schedule or be triggered manually. The workflow checks out the code, installs Terraform, logs into Azure, and executes terraform apply to apply the latest configuration changes.
+
+```yaml
+name: Azure Continuous Onboarding
+on:
+  workflow_dispatch:
+    inputs:
+      run:
+        description: 'Run terraform apply'
+        required: true
+        type: boolean
+  schedule:
+    - cron: '30 20 * * *'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform-apply:
+    if: ${{ github.event_name == 'schedule' || github.event.inputs.run == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ vars.TF_VERSION }}
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Run Terraform Init
+        run: terraform init
+
+      - name: Run Terraform Apply
+        run: terraform apply -auto-approve
 ```
 ---
 
