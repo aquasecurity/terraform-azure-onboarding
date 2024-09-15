@@ -101,6 +101,9 @@ resource "azurerm_management_group_template_deployment" "management_group_deploy
     "isCustomNameVolScan" = {
       "value" = local.is_custom_name_vol_scan
     }
+    "deploymentMethod" = {
+      "value" = "Terraform"
+    }
   })
 }
 
