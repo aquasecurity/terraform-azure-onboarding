@@ -115,7 +115,13 @@ variable "aqua_volscan_scan_locations" {
     "southindia",
     "westindia",
     "canadaeast",
-    "ukwest"
+    "ukwest",
+    "mexicocentral",
+    "polandcentral",
+    "italynorth",
+    "spaincentral",
+    "israelcentral",
+    "newzealandnorth"
   ]
   description = "List of Azure locations to scan - by default, all regions are selected"
 }
