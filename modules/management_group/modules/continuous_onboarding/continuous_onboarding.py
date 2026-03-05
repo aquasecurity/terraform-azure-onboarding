@@ -30,11 +30,13 @@ def get_headers(cspm_key, cspm_method='GET'):
     if cspm_key is not None:
         get_signature_cspm_path += "/" + cspm_key
     signature_cspm_keys = get_signature(aqua_api_secret, timestamp, get_signature_cspm_path, method=cspm_method)
+    tokens_signature = get_signature(aqua_api_secret, timestamp, "/v2/tokens", "POST", '{"validity":1,"allowed_endpoints":["ANY"]}')
 
     headers = {
         "X-API-Key": aqua_api_key,
         "X-Authenticate-Api-Key-Signature": internal_signature,
         "X-Register-New-Cspm-Signature": signature_cspm_keys,
+        "X-Tokens-Signature": tokens_signature,
         "X-Timestamp": timestamp
     }
 

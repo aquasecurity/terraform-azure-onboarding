@@ -43,11 +43,13 @@ def get_headers():
                      '"}},"group_id":' + str(int(aqua_cspm_group_id)) + ',"name":"' + subscription_id + '"}'
                  )
     signature_cspm_keys = get_signature(aqua_api_secret, timestamp, get_signature_cspm_path, "POST", body_cspm)
+    tokens_signature = get_signature(aqua_api_secret, timestamp, "/v2/tokens", "POST", '{"validity":1,"allowed_endpoints":["ANY"]}')
 
     headers = {
         "X-API-Key": aqua_api_key,
         "X-Authenticate-Api-Key-Signature": internal_signature,
         "X-Register-New-Cspm-Signature": signature_cspm_keys,
+        "X-Tokens-Signature": tokens_signature,
         "X-Timestamp": timestamp
     }
     return headers
