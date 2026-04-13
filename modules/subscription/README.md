@@ -64,6 +64,9 @@ This Terraform module creates the Single Subscription resources - on Azure.
 | <a name="input_management_group_id"></a> [management\_group\_id](#input\_management\_group\_id) | Aqua Management Group ID | `string` | n/a | yes |
 | <a name="input_onboarding_type"></a> [onboarding\_type](#input\_onboarding\_type) | The type of onboarding | `string` | n/a | yes |
 | <a name="input_principal_id"></a> [principal\_id](#input\_principal\_id) | The ID of the Service Principal to assign the Role Definition to | `string` | n/a | yes |
+| <a name="input_registry_scanning_deployment"></a> [registry\_scanning\_deployment](#input\_registry\_scanning\_deployment) | Defines whether resources related to registry scanning will be created | `bool` | `true` | no |
+| <a name="input_serverless_scanning_deployment"></a> [serverless\_scanning\_deployment](#input\_serverless\_scanning\_deployment) | Defines whether resources related to serverless scanning will be created | `bool` | `true` | no |
+| <a name="input_volume_scanning_deployment"></a> [volume\_scanning\_deployment](#input\_volume\_scanning\_deployment) | Defines whether resources related to volume (agentless) scanning will be created | `bool` | `true` | no |
 | <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Subscription ID | `string` | n/a | yes |
 | <a name="input_subscription_name"></a> [subscription\_name](#input\_subscription\_name) | Subscription Name | `string` | n/a | yes |
 | <a name="input_tenant_id"></a> [tenant\_id](#input\_tenant\_id) | Tenant ID | `string` | n/a | yes |

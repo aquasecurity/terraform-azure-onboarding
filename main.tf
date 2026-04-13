@@ -9,15 +9,20 @@ module "application" {
 }
 
 module "iam" {
-  source              = "./modules/iam"
-  onboarding_type     = var.onboarding_type
-  aqua_bucket_name    = var.aqua_bucket_name
-  aqua_cspm_role_name = var.aqua_cspm_role_name
-  principal_id        = module.application.service_principal_object_id
-  subscription_id     = local.subscription_id
-  management_group_id = var.management_group_id
-  tenant_id           = local.tenant_id
-  depends_on          = [module.application]
+  source                            = "./modules/iam"
+  onboarding_type                   = var.onboarding_type
+  aqua_bucket_name                  = var.aqua_bucket_name
+  aqua_cspm_role_name               = var.aqua_cspm_role_name
+  aqua_registry_scanner_role_name   = var.aqua_registry_scanner_role_name
+  aqua_serverless_scanner_role_name = var.aqua_serverless_scanner_role_name
+  registry_scanning_deployment      = var.registry_scanning_deployment
+  serverless_scanning_deployment    = var.serverless_scanning_deployment
+  volume_scanning_deployment        = var.volume_scanning_deployment
+  principal_id                      = module.application.service_principal_object_id
+  subscription_id                   = local.subscription_id
+  management_group_id               = var.management_group_id
+  tenant_id                         = local.tenant_id
+  depends_on                        = [module.application]
 }
 
 module "management_group" {
@@ -78,5 +83,8 @@ module "subscription" {
   aqua_event_subscriptions_name        = var.aqua_event_subscriptions_name
   aqua_custom_tags                     = var.aqua_custom_tags
   create_network                       = var.create_network
+  registry_scanning_deployment         = var.registry_scanning_deployment
+  serverless_scanning_deployment       = var.serverless_scanning_deployment
+  volume_scanning_deployment           = var.volume_scanning_deployment
   depends_on                           = [module.iam]
 }

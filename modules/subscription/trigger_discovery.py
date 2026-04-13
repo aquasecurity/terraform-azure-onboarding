@@ -25,6 +25,10 @@ aqua_volscan_resource_group_name = query.get("aqua_volscan_resource_group_name",
 if aqua_volscan_resource_group_name == "aqua-agentless-scanner":
     aqua_volscan_resource_group_name = ""
 
+registry_scanning_deployment   = query.get("registry_scanning_deployment", "true") == "true"
+serverless_scanning_deployment = query.get("serverless_scanning_deployment", "true") == "true"
+volume_scanning_deployment     = query.get("volume_scanning_deployment", "true") == "true"
+
 
 def get_signature(aqua_secret, timestamp, path, method, body=''):
     enc = timestamp + method + path + body
@@ -56,7 +60,6 @@ def get_headers():
 
 
 def onboard_subscription():
-
     body = {
         "configuration_id": aqua_configuration_id,
         "cspm_group_id": int(aqua_cspm_group_id),
@@ -65,6 +68,9 @@ def onboard_subscription():
         "is_custom_name_vol_scan": is_custom_name_vol_scan,
         "resource_group_name_vol_scan": aqua_volscan_resource_group_name,
         "subscription_name": subscription_name,
+        "registry_scanning_deployment": "true" if registry_scanning_deployment else "false",
+        "serverless_scanning_deployment": "true" if serverless_scanning_deployment else "false",
+        "volume_scanning_deployment": "true" if volume_scanning_deployment else "false",
         "payload": {
             "subscription_id": subscription_id,
             "password": application_password,
