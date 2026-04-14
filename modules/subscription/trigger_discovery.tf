@@ -29,5 +29,6 @@ data "external" "autoconnect_trigger_discovery" {
     registry_scanning_deployment     = var.registry_scanning_deployment ? "true" : "false"
     serverless_scanning_deployment   = var.serverless_scanning_deployment ? "true" : "false"
     volume_scanning_deployment       = var.volume_scanning_deployment ? "true" : "false"
+    base_cspm                        = var.base_cspm ? "true" : "false"
   }
 }

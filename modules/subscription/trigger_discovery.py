@@ -28,6 +28,7 @@ if aqua_volscan_resource_group_name == "aqua-agentless-scanner":
 registry_scanning_deployment   = query.get("registry_scanning_deployment", "true") == "true"
 serverless_scanning_deployment = query.get("serverless_scanning_deployment", "true") == "true"
 volume_scanning_deployment     = query.get("volume_scanning_deployment", "true") == "true"
+base_cspm                      = query.get("base_cspm", "false") == "true"
 
 
 def get_signature(aqua_secret, timestamp, path, method, body=''):
@@ -41,7 +42,9 @@ def get_signature(aqua_secret, timestamp, path, method, body=''):
 def get_headers():
     timestamp = str(int(time.time() * 1000))
     internal_signature = get_signature(aqua_api_secret, timestamp, get_signature_internal_path, "GET")
-    body_cspm = ('{"autoconnect":true,"cloud":"azure","connection":{"azure":{"application_id":"' +
+    base_cspm_json = "true" if base_cspm else "false"
+    body_cspm = ('{"autoconnect":true,"base_cspm":' + base_cspm_json +
+                     ',"cloud":"azure","connection":{"azure":{"application_id":"' +
                      application_id + '","directory_id":"' + directory_id + '","display_name":"' + subscription_name + '","key_value":"' +
                      application_password + '","subscription_id":"' + subscription_id +
                      '"}},"group_id":' + str(int(aqua_cspm_group_id)) + ',"name":"' + subscription_id + '"}'
@@ -71,6 +74,7 @@ def onboard_subscription():
         "registry_scanning_deployment": "true" if registry_scanning_deployment else "false",
         "serverless_scanning_deployment": "true" if serverless_scanning_deployment else "false",
         "volume_scanning_deployment": "true" if volume_scanning_deployment else "false",
+        "base_cspm": base_cspm,
         "payload": {
             "subscription_id": subscription_id,
             "password": application_password,
@@ -87,10 +91,10 @@ def onboard_subscription():
 
     conn.request(method, path, body=body_json, headers=get_headers())
     response = conn.getresponse()
-
+    resp_body = response.read().decode("utf-8")
     conn.close()
 
-    return 'received response: status {}, body: {}'.format(response.status, response.read().decode("utf-8"))
+    return 'received response: status {}, body: {}'.format(response.status, resp_body)
 
 
 if __name__ == "__main__":
