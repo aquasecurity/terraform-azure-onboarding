@@ -6,6 +6,7 @@ data "external" "autoconnect_trigger_discovery" {
     module.resource_group,
     module.network,
     module.eventgrid,
+    module.iam,
   ]
 
   program = ["python3", "${path.module}/trigger_discovery.py"]
@@ -25,5 +26,8 @@ data "external" "autoconnect_trigger_discovery" {
     is_custom_name_vol_scan          = local.is_custom_name_vol_scan
     aqua_volscan_resource_group_name = var.aqua_volscan_resource_group_name
     aqua_custom_tags                 = join(",", [for key, value in var.aqua_custom_tags : "${key}:${value}"])
+    registry_scanning_deployment     = var.registry_scanning_deployment ? "true" : "false"
+    serverless_scanning_deployment   = var.serverless_scanning_deployment ? "true" : "false"
+    volume_scanning_deployment       = var.volume_scanning_deployment ? "true" : "false"
   }
 }

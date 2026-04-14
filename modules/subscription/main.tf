@@ -1,11 +1,11 @@
 data "azurerm_resource_group" "resource_group" {
-  count = var.create_network ? 0 : 1
+  count = var.volume_scanning_deployment && !var.create_network ? 1 : 0
   name  = var.aqua_volscan_resource_group_name
 }
 
 module "resource_group" {
   source                               = "./modules/resource_group"
-  count                                = var.create_network ? 1 : 0
+  count                                = var.volume_scanning_deployment && var.create_network ? 1 : 0
   aqua_volscan_resource_group_name     = var.aqua_volscan_resource_group_name
   aqua_volscan_resource_group_location = var.aqua_volscan_resource_group_location
   resource_group_tags                  = local.tags
@@ -13,7 +13,7 @@ module "resource_group" {
 
 module "network" {
   source = "./modules/network"
-  count  = var.create_network ? 1 : 0
+  count  = var.volume_scanning_deployment && var.create_network ? 1 : 0
 
   aqua_virtual_network_name        = var.aqua_virtual_network_name
   aqua_volscan_scan_locations      = var.aqua_volscan_scan_locations
@@ -28,6 +28,7 @@ module "network" {
 
 module "eventgrid" {
   source = "./modules/eventgrid"
+  count  = var.volume_scanning_deployment ? 1 : 0
   tags   = local.tags
 
   aqua_system_topics_name          = var.aqua_system_topics_name
@@ -44,6 +45,7 @@ module "eventgrid" {
 
 module "iam" {
   source                           = "./modules/iam"
+  count                            = var.volume_scanning_deployment ? 1 : 0
   onboarding_type                  = var.onboarding_type
   aqua_bucket_name                 = var.aqua_bucket_name
   subscription_id                  = var.subscription_id

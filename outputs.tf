@@ -18,48 +18,58 @@ output "aqua_cspm_scanner_role_definition_id" {
   description = "The ID of the created Aqua CSPM role definition"
 }
 
+output "aqua_registry_scanner_role_definition_id" {
+  value       = var.show_outputs ? module.iam.aqua_registry_scanner_role_definition_id : null
+  description = "The ID of the created Aqua registry scanner role definition"
+}
+
+output "aqua_serverless_scanner_role_definition_id" {
+  value       = var.show_outputs ? module.iam.aqua_serverless_scanner_role_definition_id : null
+  description = "The ID of the created Aqua serverless scanner role definition"
+}
+
 output "aqua_agentless_scanner_role_definition_id" {
-  value       = var.show_outputs ? module.iam.aqua_agentless_scanner_role_definition_id : null
+  value       = var.show_outputs && var.volume_scanning_deployment ? module.iam.aqua_agentless_scanner_role_definition_id : null
   description = "The ID of the created Aqua agentless role definition"
 }
 
 output "aqua_agentless_scanner_delete_role_definition_id" {
-  value = var.show_outputs ? (var.onboarding_type == "single-subscription" ? {
+  value = var.show_outputs && var.volume_scanning_deployment ? (var.onboarding_type == "single-subscription" ? {
     for subscription_id, subscription_details in module.subscription[0] : subscription_id => subscription_details.aqua_agentless_scanner_delete_role_definition_id
   } : null) : null
   description = "The ID of the created Aqua agentless delete role definition"
 }
 
 output "eventgrid_id" {
-  value = var.show_outputs ? (var.onboarding_type == "single-subscription" ? {
+  value = var.show_outputs && var.volume_scanning_deployment ? (var.onboarding_type == "single-subscription" ? {
     for subscription_id, subscription_details in module.subscription[0] : subscription_id => subscription_details.eventgrid_id
   } : null) : null
   description = "EventGrid ID"
 }
 
 output "aqua_volscan_resource_group_name" {
-  value = var.show_outputs ? (var.onboarding_type == "single-subscription" ? {
+  value = var.show_outputs && var.volume_scanning_deployment ? (var.onboarding_type == "single-subscription" ? {
     for subscription_id, subscription_details in module.subscription[0] : subscription_id => subscription_details.aqua_volscan_resource_group_name
   } : null) : null
   description = "Aqua volume scanning Resource Group Name"
 }
 
 output "resource_group_id" {
-  value = var.show_outputs ? (var.onboarding_type == "single-subscription" ? {
+  value = var.show_outputs && var.volume_scanning_deployment ? (var.onboarding_type == "single-subscription" ? {
     for subscription_id, subscription_details in module.subscription[0] : subscription_id => subscription_details.resource_group_id
   } : null) : null
   description = "Resource Group ID"
 }
 
 output "virtual_networks_names" {
-  value = var.show_outputs ? (var.onboarding_type == "single-subscription" ? {
+  value = var.show_outputs && var.volume_scanning_deployment ? (var.onboarding_type == "single-subscription" ? {
     for subscription_id, subscription_details in module.subscription[0] : subscription_id => subscription_details.virtual_networks_names
   } : null) : null
   description = "Virtual Networks names"
 }
 
 output "security_groups_names" {
-  value = var.show_outputs ? (var.onboarding_type == "single-subscription" ? {
+  value = var.show_outputs && var.volume_scanning_deployment ? (var.onboarding_type == "single-subscription" ? {
     for subscription_id, subscription_details in module.subscription[0] : subscription_id => subscription_details.security_groups_names
   } : null) : null
   description = "Security Groups names"

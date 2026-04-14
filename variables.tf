@@ -46,6 +46,36 @@ variable "aqua_cspm_role_name" {
   description = "Aqua AutoConnect Scanner Role Name - The default value will be calculated as 'Aqua_Auto_Discovery_Scanner_Role_<subscription_id>'"
 }
 
+variable "aqua_registry_scanner_role_name" {
+  type        = string
+  default     = ""
+  description = "Aqua Registry Scanner Role Name - The default value will be calculated as 'Aqua_Registry_Scanner_Role_<subscription_id>'"
+}
+
+variable "aqua_serverless_scanner_role_name" {
+  type        = string
+  default     = ""
+  description = "Aqua Serverless Scanner Role Name - The default value will be calculated as 'Aqua_Serverless_Scanner_Role_<subscription_id>'"
+}
+
+variable "registry_scanning_deployment" {
+  type        = bool
+  default     = true
+  description = "Defines whether resources related to registry scanning will be created"
+}
+
+variable "serverless_scanning_deployment" {
+  type        = bool
+  default     = true
+  description = "Defines whether resources related to serverless scanning will be created"
+}
+
+variable "volume_scanning_deployment" {
+  type        = bool
+  default     = true
+  description = "Defines whether resources related to volume (agentless) scanning will be created"
+}
+
 variable "create_network" {
   type        = bool
   default     = true
