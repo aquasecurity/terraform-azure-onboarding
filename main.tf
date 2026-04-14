@@ -86,5 +86,6 @@ module "subscription" {
   registry_scanning_deployment         = var.registry_scanning_deployment
   serverless_scanning_deployment       = var.serverless_scanning_deployment
   volume_scanning_deployment           = var.volume_scanning_deployment
+  base_cspm                            = var.base_cspm
   depends_on                           = [module.iam]
 }
