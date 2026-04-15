@@ -26,32 +26,37 @@ module "iam" {
 }
 
 module "management_group" {
-  source                               = "./modules/management_group"
-  count                                = var.onboarding_type == "management-group" ? 1 : 0
-  application_id                       = module.application.application_id
-  application_password                 = module.application.application_password
-  aqua_api_key                         = var.aqua_api_key
-  aqua_api_secret                      = var.aqua_api_secret
-  aqua_autoconnect_url                 = var.aqua_autoconnect_url
-  aqua_bucket_name                     = var.aqua_bucket_name
-  aqua_configuration_id                = var.aqua_configuration_id
-  aqua_cspm_group_id                   = var.aqua_cspm_group_id
-  aqua_cspm_url                        = var.aqua_cspm_url
-  aqua_custom_tags                     = var.aqua_custom_tags
-  management_group_id                  = var.management_group_id
-  aqua_network_security_group_name     = var.aqua_network_security_group_name
-  aqua_volscan_resource_group_location = var.aqua_volscan_resource_group_location
-  aqua_virtual_network_name            = var.aqua_virtual_network_name
-  aqua_volscan_api_token               = var.aqua_volscan_api_token
-  aqua_volscan_api_url                 = var.aqua_volscan_api_url
-  aqua_volscan_scan_locations          = var.aqua_volscan_scan_locations
-  aqua_event_subscriptions_name        = var.aqua_event_subscriptions_name
-  aqua_subnet_name                     = var.aqua_subnet_name
-  aqua_system_topics_name              = var.aqua_system_topics_name
-  aqua_volscan_resource_group_name     = var.aqua_volscan_resource_group_name
-  service_principal_id                 = module.application.service_principal_object_id
-  subscription_ids                     = local.subscription_ids
-  depends_on                           = [module.iam]
+  source                                    = "./modules/management_group"
+  count                                     = var.onboarding_type == "management-group" ? 1 : 0
+  application_id                            = module.application.application_id
+  application_password                      = module.application.application_password
+  aqua_api_key                              = var.aqua_api_key
+  aqua_api_secret                           = var.aqua_api_secret
+  aqua_autoconnect_url                      = var.aqua_autoconnect_url
+  aqua_bucket_name                          = var.aqua_bucket_name
+  aqua_configuration_id                     = var.aqua_configuration_id
+  aqua_cspm_group_id                        = var.aqua_cspm_group_id
+  aqua_cspm_url                             = var.aqua_cspm_url
+  aqua_custom_tags                          = var.aqua_custom_tags
+  management_group_id                       = var.management_group_id
+  aqua_network_security_group_name          = var.aqua_network_security_group_name
+  aqua_volscan_resource_group_location      = var.aqua_volscan_resource_group_location
+  aqua_virtual_network_name                 = var.aqua_virtual_network_name
+  aqua_volscan_api_token                    = var.aqua_volscan_api_token
+  aqua_volscan_api_url                      = var.aqua_volscan_api_url
+  aqua_volscan_scan_locations               = var.aqua_volscan_scan_locations
+  aqua_event_subscriptions_name             = var.aqua_event_subscriptions_name
+  aqua_subnet_name                          = var.aqua_subnet_name
+  aqua_system_topics_name                   = var.aqua_system_topics_name
+  aqua_volscan_resource_group_name          = var.aqua_volscan_resource_group_name
+  service_principal_id                      = module.application.service_principal_object_id
+  subscription_ids                          = local.subscription_ids
+  registry_scanning_deployment              = var.registry_scanning_deployment
+  serverless_scanning_deployment            = var.serverless_scanning_deployment
+  volume_scanning_deployment                = var.volume_scanning_deployment
+  base_cspm                                 = var.base_cspm
+  management_group_pass_scanning_parameters = var.management_group_pass_scanning_parameters
+  depends_on                                = [module.iam]
 }
 
 module "subscription" {

@@ -62,6 +62,10 @@ module "aqua_azure_onboarding" {
   aqua_api_key                          = "aqua-api-key"
   aqua_api_secret                       = "aqua-api-secret"
   aqua_custom_tags                      = { aqua = "true" }
+  registry_scanning_deployment          = true  
+  serverless_scanning_deployment        = true  
+  volume_scanning_deployment            = true 
+  base_cspm                             = false 
 }
 ```
 ---
@@ -83,6 +87,10 @@ module "aqua_azure_onboarding" {
   aqua_api_key                         = "aqua-api-key"
   aqua_api_secret                      = "aqua-api-secret"
   aqua_custom_tags                     = { aqua = "true" }
+  registry_scanning_deployment         = true  
+  serverless_scanning_deployment       = true 
+  volume_scanning_deployment           = true  
+  base_cspm                            = false
 }
 ```
 ---
