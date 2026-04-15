@@ -82,6 +82,12 @@ variable "base_cspm" {
   description = "Set to true if this is a base CSPM deployment (discovery only). Set to false for advanced CSPM deployment"
 }
 
+variable "management_group_pass_scanning_parameters" {
+  type        = bool
+  default     = false
+  description = "When true, passes registry/serverless/volume/baseCspm into the management-group ARM template. Set false if autoconnect_deployment_management_group_template.json does not declare those parameters."
+}
+
 variable "create_network" {
   type        = bool
   default     = true
