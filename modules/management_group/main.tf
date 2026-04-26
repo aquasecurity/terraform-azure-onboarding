@@ -104,7 +104,7 @@ resource "azurerm_management_group_template_deployment" "management_group_deploy
         "value" = local.is_custom_name_vol_scan
       },
     },
-    var.management_group_pass_scanning_parameters ? {
+    local.should_pass_scanning_parameters ? {
       "registryScanningDeployment" = {
         "value" = var.registry_scanning_deployment
       },
