@@ -31,10 +31,16 @@ No modules.
 | [azurerm_role_assignment.aqua_agentless_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.aqua_cspm_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_assignment.aqua_cspm_scanner_acr_pull_role](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.aqua_registry_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
+| [azurerm_role_assignment.aqua_serverless_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_role_definition.aqua_agentless_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
 | [azurerm_role_definition.aqua_cspm_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
+| [azurerm_role_definition.aqua_registry_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
+| [azurerm_role_definition.aqua_serverless_scanner](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition) | resource |
 | [http_http.autoconnect_agentless_scanner_role](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [http_http.autoconnect_cspm_scanner_role](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
+| [http_http.autoconnect_registry_scanner_role](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
+| [http_http.autoconnect_serverless_scanner_role](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 
 ## Inputs
 
@@ -42,9 +48,14 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_aqua_bucket_name"></a> [aqua\_bucket\_name](#input\_aqua\_bucket\_name) | Aqua Bucket Name | `string` | n/a | yes |
 | <a name="input_aqua_cspm_role_name"></a> [aqua\_cspm\_role\_name](#input\_aqua\_cspm\_role\_name) | Aqua Auto Discovery Scanner Role Name | `string` | n/a | yes |
+| <a name="input_aqua_registry_scanner_role_name"></a> [aqua\_registry\_scanner\_role\_name](#input\_aqua\_registry\_scanner\_role\_name) | Aqua Registry Scanner Role Name - The default value will be calculated as 'Aqua_Registry_Scanner_Role_<subscription_id>' | `string` | `""` | no |
+| <a name="input_aqua_serverless_scanner_role_name"></a> [aqua\_serverless\_scanner\_role\_name](#input\_aqua\_serverless\_scanner\_role\_name) | Aqua Serverless Scanner Role Name - The default value will be calculated as 'Aqua_Serverless_Scanner_Role_<subscription_id>' | `string` | `""` | no |
 | <a name="input_management_group_id"></a> [management\_group\_id](#input\_management\_group\_id) | Aqua Management Group ID | `string` | n/a | yes |
 | <a name="input_onboarding_type"></a> [onboarding\_type](#input\_onboarding\_type) | The type of onboarding | `string` | n/a | yes |
 | <a name="input_principal_id"></a> [principal\_id](#input\_principal\_id) | The ID of the Service Principal to assign the Role Definition to | `string` | n/a | yes |
+| <a name="input_registry_scanning_deployment"></a> [registry\_scanning\_deployment](#input\_registry\_scanning\_deployment) | Defines whether resources related to registry scanning will be created | `bool` | `true` | no |
+| <a name="input_serverless_scanning_deployment"></a> [serverless\_scanning\_deployment](#input\_serverless\_scanning\_deployment) | Defines whether resources related to serverless scanning will be created | `bool` | `true` | no |
+| <a name="input_volume_scanning_deployment"></a> [volume\_scanning\_deployment](#input\_volume\_scanning\_deployment) | Defines whether resources related to volume (agentless) scanning will be created | `bool` | `true` | no |
 | <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Subscription ID | `string` | n/a | yes |
 | <a name="input_tenant_id"></a> [tenant\_id](#input\_tenant\_id) | Tenant ID | `string` | n/a | yes |
 
@@ -52,6 +63,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_aqua_agentless_scanner_role_definition_id"></a> [aqua\_agentless\_scanner\_role\_definition\_id](#output\_aqua\_agentless\_scanner\_role\_definition\_id) | The ID of the created Aqua agentless role definition |
+| <a name="output_aqua_agentless_scanner_role_definition_id"></a> [aqua\_agentless\_scanner\_role\_definition\_id](#output\_aqua\_agentless\_scanner\_role\_definition\_id) | The ID of the created Aqua agentless role definition, or null if `volume_scanning_deployment` is false |
 | <a name="output_aqua_cspm_scanner_role_definition_id"></a> [aqua\_cspm\_scanner\_role\_definition\_id](#output\_aqua\_cspm\_scanner\_role\_definition\_id) | The ID of the created Aqua CSPM role definition |
+| <a name="output_aqua_registry_scanner_role_definition_id"></a> [aqua\_registry\_scanner\_role\_definition\_id](#output\_aqua\_registry\_scanner\_role\_definition\_id) | The ID of the created Aqua registry scanner role definition, or null if `registry_scanning_deployment` is false |
+| <a name="output_aqua_serverless_scanner_role_definition_id"></a> [aqua\_serverless\_scanner\_role\_definition\_id](#output\_aqua\_serverless\_scanner\_role\_definition\_id) | The ID of the created Aqua serverless scanner role definition, or null if `serverless_scanning_deployment` is false |
 <!-- END_TF_DOCS -->

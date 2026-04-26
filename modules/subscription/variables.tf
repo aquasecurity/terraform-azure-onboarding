@@ -131,3 +131,27 @@ variable "aqua_configuration_id" {
   type        = string
   description = "Aqua configuration id"
 }
+
+variable "registry_scanning_deployment" {
+  type        = bool
+  description = "Defines whether resources related to registry scanning will be created"
+  default     = true
+}
+
+variable "serverless_scanning_deployment" {
+  type        = bool
+  description = "Defines whether resources related to serverless scanning will be created"
+  default     = true
+}
+
+variable "volume_scanning_deployment" {
+  type        = bool
+  description = "Defines whether resources related to volume (agentless) scanning will be created"
+  default     = true
+}
+
+variable "base_cspm" {
+  type        = bool
+  description = "Set to true if this is a base CSPM deployment (discovery only). Set to false for advanced CSPM deployment"
+  default     = false
+}

@@ -117,3 +117,32 @@ variable "aqua_volscan_scan_locations" {
   description = "List of Azure locations to scan"
 }
 
+variable "registry_scanning_deployment" {
+  type        = bool
+  default     = true
+  description = "Defines whether resources related to registry scanning will be created"
+}
+
+variable "serverless_scanning_deployment" {
+  type        = bool
+  default     = true
+  description = "Defines whether resources related to serverless scanning will be created"
+}
+
+variable "volume_scanning_deployment" {
+  type        = bool
+  default     = true
+  description = "Defines whether resources related to volume (agentless) scanning will be created"
+}
+
+variable "base_cspm" {
+  type        = bool
+  default     = false
+  description = "Set to true if this is a base CSPM deployment (discovery only). Set to false for advanced CSPM deployment"
+}
+
+variable "management_group_pass_scanning_parameters" {
+  type        = bool
+  default     = false
+  description = "When true, passes registry/serverless/volume/baseCspm into the management-group ARM template. Set false if autoconnect_deployment_management_group_template.json does not declare those parameters."
+}
