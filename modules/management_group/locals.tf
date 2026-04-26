@@ -5,4 +5,13 @@ locals {
   autoconnect_agentless_scanner_delete_role_definition = data.http.autoconnect_agentless_scanner_role.response_body
   aqua_agentless_delete_role_name                      = "aqua-agentless-scanner-delete-role-${var.management_group_id}"
   is_custom_name_vol_scan                              = tostring(var.aqua_volscan_resource_group_name != "aqua-agentless-scanner" || var.aqua_event_subscriptions_name != "aqua-agentless-scanner" || var.aqua_system_topics_name != "aqua-agentless-scanner" || var.aqua_subnet_name != "aqua-agentless-scanner")
+
+  # Auto-enable passing scanning params if user changed ANY module flag from default
+  should_pass_scanning_parameters = (
+    var.management_group_pass_scanning_parameters ||
+    var.volume_scanning_deployment != true ||
+    var.registry_scanning_deployment != true ||
+    var.serverless_scanning_deployment != true ||
+    var.base_cspm != false
+  )
 }
