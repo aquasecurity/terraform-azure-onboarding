@@ -10,8 +10,7 @@ module "continuous_onboarding" {
 
 
 resource "azurerm_management_group_template_deployment" "management_group_deployment" {
-  # Keep count plan-time deterministic; local.subscription_ids may be unknown until apply.
-  count = var.volume_scanning_deployment ? 1 : 0
+  # The ARM template handles conditional resource creation internally based on module flags.
   name                = "aqua-agentless-scanner"
   location            = local.aqua_volscan_template_location
   management_group_id = "/providers/Microsoft.Management/managementGroups/${var.management_group_id}"
@@ -106,16 +105,16 @@ resource "azurerm_management_group_template_deployment" "management_group_deploy
     },
     local.should_pass_scanning_parameters ? {
       "registryScanningDeployment" = {
-        "value" = var.registry_scanning_deployment
+        "value" = tostring(var.registry_scanning_deployment)
       },
       "serverlessScanningDeployment" = {
-        "value" = var.serverless_scanning_deployment
+        "value" = tostring(var.serverless_scanning_deployment)
       },
       "volumeScanningDeployment" = {
-        "value" = var.volume_scanning_deployment
+        "value" = tostring(var.volume_scanning_deployment)
       },
       "baseCspm" = {
-        "value" = var.base_cspm
+        "value" = tostring(var.base_cspm)
       },
     } : {},
     {
